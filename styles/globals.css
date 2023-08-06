@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gradient-from: 0 112 243;
+  --gradient-to: 248 28 229;
+  --colorTheme: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+
+  html.dark {
+    color-scheme: dark;
+    --colorTheme: #000;
+  }
+
+  .container-main {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .container-section {
+    margin: 0 auto;
+    max-width: 62.5rem;
+    padding: 0 1.5rem;
+  }
+}
+
+@layer components {
+  .text-primary {
+    @apply text-gray-600 dark:text-gray-300;
+  }
+
+  .text-active {
+    @apply text-violetSecondary dark:text-violetPrimary;
+  }
+
+  .text-hover {
+    @apply hover:text-violet-700 dark:hover:text-violet-400;
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 1rem + 5vw, 2rem);
+    @apply text-[28px] font-bold sm:text-4xl sm:font-semibold;
+  }
+
+  .flow > * + * {
+    margin-top: 1rem;
+  }
+
+  p:not([class]) {
+    max-width: 60ch;
+    @apply xs:text-xl text-customGray-light dark:text-gray-400;
+  }
+
+  .background-gradient {
+    background: linear-gradient(
+        to top,
+        var(--colorTheme) 0,
+        hsla(0, 0%, 100%, 0) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgb(var(--gradient-from, 85 85 85) / 0.2) 0,
+        rgb(var(--gradient-to, 85 85 85) / 0.2) 100%
+      );
+    background-size: 100% 100%, 100% 100%, 1440px 1px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    min-height: 120px;
+  }
+}

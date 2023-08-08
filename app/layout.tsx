@@ -8,9 +8,11 @@ import "@/styles/globals.css";
 import { ReactNode, Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Inicio - Jeremias Arriondo",
-  description: "Bienvenid@ a mi web personal",
-  keywords: ["Web", "Frontend", "Backend", "Portfolio"],
+  title: { template: "%s | Jeremias Arriondo", default: "Jeremias Arriondo" },
+  description: "Full-stack developer. Mi blog y mas.",
+  keywords: [
+    "jeremias arriondo, full-stack developer, web developer, next.js, blog",
+  ],
   authors: [
     {
       name: "Jeremias Arriondo",
@@ -20,6 +22,25 @@ export const metadata: Metadata = {
   creator: "Jeremias Arriondo",
   icons: {
     icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Jeremias Arriondo",
+    description: "Mi web personal",
+    siteName: "Jeremias Arriondo's website",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  twitter: {
+    title: "Jeremias Arriondo",
+    card: "summary_large_image",
+    creator: "@Jere_Arriondo",
   },
 };
 

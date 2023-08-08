@@ -6,7 +6,7 @@ import { toUniqueArray } from "@/utils/to-unique-array";
 import "@/styles/paginate.css";
 
 export const metadata = {
-  title: "Blogs - Jeremias Arriondo",
+  title: "Blogs",
   description: "Aquí encontraras todos mis blogs relacionados a tecnología",
 };
 

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Sobre mi - Jeremias Arriondo",
+  title: "Sobre mi",
   description: "Conoce un poco más sobre mis retos, objetivos y enfoque",
 };
 

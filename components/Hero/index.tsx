@@ -1,9 +1,12 @@
 import Image from "next/image";
+import { IconGitHub } from "../Icons";
+import { IconLinkedIn } from "../Icons/IconLinkedIn";
+import { IconMessage } from "../Icons/IconMessage";
 
 export const Hero = () => {
   return (
     <section
-      className="background-gradient flex justify-center"
+      className="background-gradient flex justify-center min-h-[calc(100vh-64px)]"
       aria-labelledby="hero-description"
     >
       <div className="container-section">
@@ -26,14 +29,61 @@ export const Hero = () => {
             <p className="my-2 text-xl text-slate-600 dark:text-slate-400">
               Full-Stack Developer
             </p>
-            <p
+            {/* <p
               className="my-4 text-customGray-dark dark:text-customGray-base"
               id="hero-description"
             >
               Bienvenid@ a mi web personal. <br /> Soy un entusiasta
               desarrollador de software y aquí podrás encontrar más sobre mi.
-            </p>
+            </p> */}
           </div>
+        </div>
+        <div className="flex flex-col items-center">
+          <p
+            className="xs:text-center my-4 text-customGray-dark dark:text-customGray-base"
+            id="hero-description"
+          >
+            {/* Bienvenid@ a mi pequeño universo. <br /> */}
+            Soy un entusiasta desarrollador de software, buscando en todo
+            momento nuevos desafíos y listo para una nueva aventura. Aquí podrás
+            encontrar más sobre mi.
+          </p>
+        </div>
+        <div className="flex justify-around my-8 xs:justify-center gap-4 xs:gap-16">
+          <a
+            href="https://www.linkedin.com/in/jeremias-arriondo/o"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="Abrir perfil de LinkedIn"
+          >
+            <IconLinkedIn
+              width="3rem"
+              height="3rem"
+              className="transform cursor-pointer hover:scale-110 active:scale-95"
+            />
+          </a>
+          <a
+            href="https://github.com/JeremiasArriondo"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="Abrir perfil de GitHub"
+          >
+            <IconGitHub
+              width="3rem"
+              height="3rem"
+              className="transform cursor-pointer hover:scale-110 active:scale-95"
+            />
+          </a>
+          <a
+            href="mailto:jeremiasarriondo98@gmail.com"
+            aria-label="Enviar email"
+          >
+            <IconMessage
+              width="3rem"
+              height="3rem"
+              className="transform cursor-pointer hover:scale-110 active:scale-95"
+            />
+          </a>
         </div>
       </div>
     </section>

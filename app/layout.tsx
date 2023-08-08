@@ -5,6 +5,7 @@ import Navbar from "@/components/Navigation/Navbar";
 import Provider from "@/components/provider";
 import ScrollUpButton from "@/components/scroll-up-button";
 import "@/styles/globals.css";
+import { ReactNode, Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Inicio - Jeremias Arriondo",
@@ -27,18 +28,14 @@ const inter = Inter({
   display: "swap",
 });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es" suppressHydrationWarning className={inter.className}>
       <body>
         <Provider>
           <div className="dark:bg-black container-main">
             <Navbar />
-            {children}
+            <Suspense>{children}</Suspense>
             <Footer />
             <div className="fixed bottom-12 right-10">
               <ScrollUpButton />

@@ -38,16 +38,21 @@ export const Hero = () => {
             </p> */}
           </div>
         </div>
-        <div className="flex flex-col items-center">
-          <p
-            className="xs:text-center my-4 text-customGray-dark dark:text-customGray-base"
-            id="hero-description"
-          >
-            {/* Bienvenid@ a mi pequeño universo. <br /> */}
-            Soy un entusiasta desarrollador de software, buscando en todo
-            momento nuevos desafíos y listo para una nueva aventura. Aquí podrás
-            encontrar más sobre mi.
+        <div className="my-12 md:text-xl text-customGray-dark dark:text-customGray-base">
+          <p className="md:mt-32" id="hero-description">
+            Bienvenido a mi página web, soy un entusiasta desarrollador de
+            software enfocado en resolver y construir soluciones tanto en el
+            Frontend como en el Backend.
           </p>
+          <p className="my-4">Aquí podrás conocer más sobre mi.</p>
+        </div>
+        <div>
+          <a
+            className="p-2 border border-violetSecondary text-violet-300 hover:text-violetPrimary rounded-md"
+            href="#"
+          >
+            Resumen - CV
+          </a>
         </div>
         <div className="flex justify-around my-8 xs:justify-center gap-4 xs:gap-16">
           <a

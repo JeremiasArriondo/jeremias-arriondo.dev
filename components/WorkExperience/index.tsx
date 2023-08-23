@@ -5,7 +5,7 @@ import React from "react";
 export function WorkExperience() {
   return (
     <section className="mb-8">
-      <h2 className="text-xl dark:text-white mb-8">Experiencia</h2>
+      <h2 className="text-xl md:text-2xl dark:text-white mb-8">Experiencia</h2>
       <ol className="flex flex-col gap-8 mb-8">
         {workExperience.map(
           ({ position, web, fromDate, toDate, details, tecnologies }) => {

@@ -11,10 +11,9 @@ export default function PostsList({ allPosts }: { allPosts: Post[] }) {
   return (
     <section className="my-8 md:mt-16 space-y-8">
       <div>
-        <h2 className="text-xl dark:text-white">
-          Suelo escribir sobre tecnología de vez en cuando
+        <h2 className="text-xl pt-6 md:text-2xl dark:text-white">
+          Últimos posteos:
         </h2>
-        <p className="dark:text-white">Últimos blogs:</p>
       </div>
       <div>
         {lastPosts.length > 0 ? (
@@ -33,11 +32,6 @@ export default function PostsList({ allPosts }: { allPosts: Post[] }) {
                     {post.title}
                   </h3>
                 </Link>
-                {/* <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-                  Get access to over 20+ pages including a dashboard layout,
-                  charts, kanban board, calendar, and pre-order E-commerce &
-                  Marketing pages.
-                </p> */}
                 <Link
                   href={`/blog/${post.slug}`}
                   className="text-blueSecondary dark:text-bluePrimary inline-flex items-center"

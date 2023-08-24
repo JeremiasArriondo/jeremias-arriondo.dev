@@ -9,9 +9,9 @@ export default function PostsList({ allPosts }: { allPosts: Post[] }) {
     .slice(0, CANT_POSTS);
 
   return (
-    <section className="my-8 md:mt-16 space-y-8">
+    <section className="my-8 space-y-8">
       <div>
-        <h2 className="text-xl pt-6 md:text-2xl dark:text-white">
+        <h2 className="text-xl md:text-2xl dark:text-white">
           Últimos posteos:
         </h2>
       </div>

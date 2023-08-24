@@ -1,7 +1,5 @@
 import Image from "next/image";
-import { IconGitHub } from "../Icons";
-import { IconLinkedIn } from "../Icons/IconLinkedIn";
-import { IconMessage } from "../Icons/IconMessage";
+import { IconGitHub, IconLinkedIn, IconMessage } from "../Icons";
 
 export const Hero = () => {
   return (
@@ -11,14 +9,20 @@ export const Hero = () => {
     >
       <div className="container-section">
         <div className="mt-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          {/* <div className="relative inline-flex">
+            <div
+              className="w-[80%] h-[80%] absolute inset-0 m-auto blur-3xl -z-10 rounded-full bg-violetSecondary"
+              aria-hidden="true"
+            ></div> */}
           <Image
             src="/images/avatar-squared.webp"
             width={200}
             height={200}
-            className="object-cover overflow-hidden rounded-full shadow-violetSecondary "
+            className="inline-flex object-cover overflow-hidden rounded-full shadow-violetSecondary "
             priority={true}
             alt="Picture of the author"
           />
+          {/* </div> */}
           <div>
             <h1 className="dark:text-customGray-base text-2xl md:text-3xl">
               Hola, soy <br />

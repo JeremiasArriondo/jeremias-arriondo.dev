@@ -16,14 +16,11 @@ export default function NavLink({
   return (
     <Link
       href={`/${path}`}
-      className={`group ${isActive && "text-bluePrimary"}`}
+      className={`group hover:text-violetPrimary ${
+        isActive && "text-violetPrimary"
+      }`}
     >
       {children}
-      <span
-        className={`block h-0.5 max-w-0 bg-black transition-all duration-300 group-hover:max-w-full dark:bg-bluePrimary ${
-          isActive && "bg-bluePrimary max-w-full"
-        }`}
-      ></span>
     </Link>
   );
 }

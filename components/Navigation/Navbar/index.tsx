@@ -49,7 +49,7 @@ export default function Navbar() {
                 className="flex text-gray-800 dark:text-gray-500"
               >
                 <IconTerminal />
-                <span className="font-mono dark:text-gray-200 hover:text-slate-500 dark:hover:text-slate-500">
+                <span className="font-mono font-bold dark:text-gray-200 hover:text-slate-500 dark:hover:text-slate-500">
                   dev-JA
                 </span>
               </Link>

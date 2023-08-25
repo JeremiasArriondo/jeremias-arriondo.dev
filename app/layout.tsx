@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Provider>
           <div className="dark:bg-black container-main">
             <Navbar />
-            <Suspense>{children}</Suspense>
+            {children}
             <Footer />
             <div className="fixed bottom-12 right-10">
               <ScrollUpButton />

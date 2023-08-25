@@ -6,7 +6,7 @@ import { toUniqueArray } from "@/utils/to-unique-array";
 import "@/styles/paginate.css";
 
 export const metadata = {
-  title: "Blogs",
+  title: "Blog",
   description: "Aquí encontraras todos mis blogs relacionados a tecnología",
 };
 
@@ -28,8 +28,8 @@ export default async function BlogsPage() {
             Aquí puedes leer todos mis blogs
           </h1>
           <p>
-            Suelo escribir sobre tecnología y además, sobre problemas en el
-            desarrollo que tengo en mi día a día
+            Suelo escribir sobre tecnología y soluciones a problemas en el
+            desarrollo del día a día
           </p>
         </div>
       </section>

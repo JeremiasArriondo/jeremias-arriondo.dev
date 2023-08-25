@@ -1,3 +1,5 @@
+import { WorkExperience } from "@/components/WorkExperience";
+
 export const metadata = {
   title: "Sobre mi",
   description: "Conoce un poco más sobre mis retos, objetivos y enfoque",
@@ -17,7 +19,7 @@ export default function AboutPage() {
             en esta profesión hace aproximadamente 2 años.
           </p>
           <h3 className="text-xl xs:text-2xl text-black dark:text-white">
-            Enfoque y objetivos
+            Enfoque y objetivos 🎯
           </h3>
           <p>
             Mi enfoque principal se centra en emprender nuevos retos.
@@ -32,14 +34,18 @@ export default function AboutPage() {
             y desarrollándome.
           </p>
           <h3 className="text-xl xs:text-2xl text-black dark:text-white">
-            Educación
+            Experiencia laboral 👨‍💻
+          </h3>
+          <WorkExperience />
+          <h3 className="text-xl xs:text-2xl text-black dark:text-white">
+            Educación 📓
           </h3>
           <p>
             Me especialicé en desarrollo de sistemas informáticos en la
             universidad{" "}
             <a
               href="https://sitio.unnoba.edu.ar/"
-              className="text-bluePrimary"
+              className="linked"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -49,7 +55,7 @@ export default function AboutPage() {
             de los demás profesionales que comparten su conocimiento día a día.
           </p>
           <h3 className="text-xl xs:text-2xl text-black dark:text-white">
-            Fuera de programar
+            Fuera de programar 💜
           </h3>
           <p>
             Disfruto demasiado programar, pero también disfruto la vida con mi
@@ -57,18 +63,15 @@ export default function AboutPage() {
             perritos🐩🐕🐩.
           </p>
           <h3 className="text-xl xs:text-2xl text-black dark:text-white">
-            Contactame
+            Contactame 📬
           </h3>
           <p>
             Si estás buscando un desarrollador de software confiable para
             diseñar ideas y llevarlas a cabo, no dudes en{" "}
-            <a
-              href="mailto:jeremiasarriondo98@gmail.com"
-              className="text-bluePrimary"
-            >
-              contactarme 📬
+            <a href="mailto:jeremiasarriondo98@gmail.com" className="linked">
+              contactarme
             </a>
-            . Gracias por tomarse el tiempo para aprender más sobre mi.
+            . Gracias por tomarte el tiempo para aprender más sobre mi.
           </p>
         </div>
       </section>

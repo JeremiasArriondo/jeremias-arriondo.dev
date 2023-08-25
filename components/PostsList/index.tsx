@@ -22,7 +22,10 @@ export default function PostsList({ allPosts }: { allPosts: Post[] }) {
             className="relative border-l border-gray-200 dark:border-gray-700"
           >
             {lastPosts.map((post) => (
-              <li key={post.slug} className="mb-10 ml-4">
+              <li
+                key={post.slug}
+                className="mb-10 ml-4 bg-gradient-to-t from-transparent to-gray-50 dark:to-gray-900 px-5 py-4 rounded-xl hover:to-gray-200"
+              >
                 <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700" />
                 <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-400">
                   {post.date}

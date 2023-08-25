@@ -8,7 +8,7 @@ export const Hero = () => {
       aria-labelledby="hero-description"
     >
       <div className="container-section">
-        <div className="mt-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div className="mt-8 md:mt-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
           {/* <div className="relative inline-flex">
             <div
               className="w-[80%] h-[80%] absolute inset-0 m-auto blur-3xl -z-10 rounded-full bg-violetSecondary"

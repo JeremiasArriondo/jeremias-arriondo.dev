@@ -58,7 +58,7 @@ export const Hero = () => {
             target="_blank"
             rel="noreferrer noopener"
             aria-label="Abrir perfil de GitHub"
-            className="flex items-center border-b border-gray-300 transition-all duration-300 ease-in-out hover:border-violetSecondary dark:hover:border-violetPrimary"
+            className="flex items-center linked"
           >
             <IconGitHub
               width="1.5rem"
@@ -72,7 +72,7 @@ export const Hero = () => {
             target="_blank"
             rel="noreferrer noopener"
             aria-label="Abrir perfil de LinkedIn"
-            className="flex items-center border-b border-gray-300 transition-all duration-300 ease-in-out hover:border-violetSecondary dark:hover:border-violetPrimary"
+            className="flex items-center linked"
           >
             <IconLinkedIn
               width="1.5rem"
@@ -85,7 +85,7 @@ export const Hero = () => {
           <a
             href="mailto:jeremiasarriondo98@gmail.com"
             aria-label="Enviar email"
-            className="flex items-center border-b border-gray-300 transition-all duration-300 ease-in-out hover:border-violetSecondary dark:hover:border-violetPrimary"
+            className="flex items-center linked"
           >
             <IconMessage
               width="1.5rem"

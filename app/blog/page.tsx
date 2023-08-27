@@ -1,23 +1,29 @@
-import CategoryFilter from "@/components/filter/category-filter";
-import SearchBar from "@/components/filter/search-bar";
+import Image from "next/image";
+import Link from "next/link";
+import { allPosts } from "contentlayer/generated";
 import PostsGrid from "@/components/posts/posts-grid";
-import { getAllPostsFromNotion } from "@/services/posts";
+import SearchBar from "@/components/filter/search-bar";
+import CategoryFilter from "@/components/filter/category-filter";
 import { toUniqueArray } from "@/utils/to-unique-array";
-import "@/styles/paginate.css";
 
 export const metadata = {
   title: "Blog",
-  description: "Aquí encontraras todos mis blogs relacionados a tecnología",
 };
 
-export default async function BlogsPage() {
-  const allPosts = await getAllPostsFromNotion();
+export default async function BlogPage() {
+  const posts = allPosts
+    .filter((post) => post.published)
+    .sort((postA, postB) => (postA.date > postB.date ? -1 : 1));
+
+  // const allCategories = toUniqueArray(
+  //   allPosts
+  //     .filter((post) => post.published)
+  //     .map((post) => post.categories)
+  //     .flat()
+  // ).sort();
 
   const allCategories = toUniqueArray(
-    allPosts
-      .filter((post) => post.published)
-      .map((post) => post.categories)
-      .flat()
+    allPosts.map((post) => post.categories).flat()
   ).sort();
 
   return (
@@ -36,7 +42,42 @@ export default async function BlogsPage() {
       <section className="container-section pt-8">
         <SearchBar />
         <CategoryFilter allCategories={allCategories} />
-        <PostsGrid allPosts={allPosts} />
+        <PostsGrid allPosts={posts} />
+        {/* {posts?.length ? (
+          <div className="grid gap-10 sm:grid-cols-2">
+            {posts.map((post, index) => (
+              <article
+                key={post._id}
+                className="group relative flex flex-col space-y-2"
+              >
+                {post.image && (
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    width={804}
+                    height={452}
+                    className="rounded-md border bg-muted transition-colors"
+                    priority={index <= 1}
+                  />
+                )}
+                <h2 className="text-2xl font-extrabold">{post.title}</h2>
+                {post.description && (
+                  <p className="text-muted-foreground">{post.description}</p>
+                )}
+                {post.date && (
+                <p className="text-sm text-muted-foreground">
+                  {formatDate(post.date)}
+                </p>
+              )}
+                <Link href={post.slug} className="absolute inset-0">
+                  <span className="sr-only">View Article</span>
+                </Link>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p>No posts published.</p>
+        )} */}
       </section>
     </main>
   );

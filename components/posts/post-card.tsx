@@ -4,17 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 import CategoryList from "@/components/category-list";
-import { Post } from "@/types/post";
+// import { Post } from "@/types/post";
 import { CardParallax } from "../Card";
+import { Post } from "@/.contentlayer/generated";
 
 export default function PostCard({
-  post: { slug, title, date, cover, categories },
+  post: { slug, title, date, image, categories },
 }: {
   post: Post;
 }) {
   return (
     <CardParallax>
-      <Link href={`/blog/${slug}`}>
+      <Link href={slug}>
         <article
           className="mx-auto flex
           flex-col overflow-hidden rounded-lg not-prose break-inside-avoid border border-gray-300 dark:border-gray-800
@@ -22,7 +23,7 @@ export default function PostCard({
         >
           <div className="relative">
             <Image
-              src={cover}
+              src={image}
               alt=""
               width="0"
               height="0"

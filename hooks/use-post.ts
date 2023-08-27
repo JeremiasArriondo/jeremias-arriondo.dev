@@ -5,9 +5,10 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { categoriesState } from "@/states/categories";
 import { pageState } from "@/states/page";
 import { queryState } from "@/states/query";
-import { Post } from "@/types/post";
+// import { Post } from "@/types/post";
 // import { search } from "@/utils/search";
 import { toUniqueArray } from "@/utils/to-unique-array";
+import { Post } from "@/.contentlayer/generated";
 
 const POST_PER_PAGE = 12;
 

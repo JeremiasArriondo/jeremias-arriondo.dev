@@ -5,10 +5,11 @@ import { useRef } from "react";
 import Paginate from "@/components/paginate";
 import PostCard from "@/components/posts/post-card";
 import usePosts from "@/hooks/use-post";
-import { Post } from "@/types/post";
+import { Post } from "@/.contentlayer/generated";
 
 export default function PostsGrid({ allPosts }: { allPosts: Post[] }) {
   const { posts, totalPages } = usePosts(allPosts);
+  // const posts = allPosts;
   const rootRef = useRef<HTMLDivElement>(null);
 
   return (

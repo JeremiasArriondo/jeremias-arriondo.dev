@@ -10,6 +10,7 @@ import "@/styles/mdx.css";
 
 import { absoluteUrl, formatDate } from "@/lib/utils";
 import { cn } from "@/lib/cn";
+import Author from "@/components/author";
 // import { buttonVariants } from "@/components/ui/button"
 // import { Icons } from "@/components/icons"
 
@@ -91,7 +92,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <article className="container relative max-w-3xl py-6 lg:py-10">
+    <article className="container-section relative max-w-3xl py-6 lg:py-10">
       <Link
         href="/blog"
         className={cn("absolute left-[-200px] top-14 hidden xl:inline-flex")}
@@ -105,12 +106,15 @@ export default async function PostPage({ params }: PostPageProps) {
             dateTime={post.date}
             className="block text-sm text-muted-foreground"
           >
-            Published on {formatDate(post.date)}
+            Publicado el {formatDate(post.date)}
           </time>
         )}
         <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
           {post.title}
         </h1>
+        <div className="mt-4 flex space-x-4">
+          {post.author ? <Author username={post.author} imageOnly /> : null}
+        </div>
         {/* {authors?.length ? (
           <div className="mt-4 flex space-x-4">
             {authors.map((author) =>

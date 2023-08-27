@@ -3,7 +3,7 @@ const { withContentlayer } = require("next-contentlayer");
 
 const nextConfig = {
   eslint: {
-    ignoreDuringBuilds: true
+    ignoreDuringBuilds: true,
   },
   reactStrictMode: true,
   swcMinify: true,
@@ -11,6 +11,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
+    domains: ["www.google.com", "avatar.vercel.sh"],
     remotePatterns: [
       {
         protocol: "https",

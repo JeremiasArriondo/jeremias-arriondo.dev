@@ -2,8 +2,7 @@
 
 import { useTheme } from "next-themes";
 import useMounted from "@/hooks/use-mounted";
-import { IconDark } from "./icons/IconDark";
-import { IconLight } from "./icons/IconLight";
+import { IconDark, IconLight } from "@/components/icons";
 
 export function ThemeToggle() {
   const { setTheme } = useTheme();

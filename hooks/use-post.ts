@@ -9,6 +9,7 @@ import { queryState } from "@/states/query";
 // import { search } from "@/utils/search";
 import { toUniqueArray } from "@/lib/to-unique-array";
 import { Post } from "@/.contentlayer/generated";
+import { CategoriesPost } from "@/types/post";
 
 const POST_PER_PAGE = 12;
 
@@ -30,7 +31,7 @@ export default function usePosts(allPosts: Post[]) {
 
         if (categories.selected.length) {
           const isCategoryMatch = categories.selected.every((cat) =>
-            post.categories.includes(cat)
+            post.categories.includes(cat as CategoriesPost)
           );
           if (!isCategoryMatch) {
             return false;

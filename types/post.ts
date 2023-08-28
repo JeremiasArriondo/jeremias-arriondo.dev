@@ -9,3 +9,5 @@ export type Post = {
   published: boolean;
   lastEditedAt: number;
 };
+
+export type CategoriesPost = "Next.js" | "Mulesoft" | "React" | "Sin categoría";

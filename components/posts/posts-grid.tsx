@@ -9,7 +9,6 @@ import { Post } from "@/.contentlayer/generated";
 
 export default function PostsGrid({ allPosts }: { allPosts: Post[] }) {
   const { posts, totalPages } = usePosts(allPosts);
-  // const posts = allPosts;
   const rootRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -18,13 +17,10 @@ export default function PostsGrid({ allPosts }: { allPosts: Post[] }) {
       className="flex my-8 flex-col items-center space-y-16"
     >
       {posts.length > 0 ? (
-        <ul
-          id="posts-grid"
-          className="grid w-full grid-cols-1 gap-x-8 gap-y-32 md:grid-cols-2 xl:grid-cols-3"
-        >
-          {posts.map((post) => (
+        <ul id="posts-grid" className="grid gap-10 sm:grid-cols-2">
+          {posts.map((post, index) => (
             <li key={post.slug}>
-              <PostCard post={post} />
+              <PostCard post={post} index={index} />
             </li>
           ))}
         </ul>

@@ -48,7 +48,7 @@ export const Post = defineDocumentType(() => ({
       type: "list",
       of: {
         type: "enum",
-        options: ["Next.js", "React", "Mulesoft"],
+        options: ["Next.js", "React", "Mulesoft", "Sin categoría"],
         default: "Sin categoría",
       },
       required: true,

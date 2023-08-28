@@ -1,5 +1,7 @@
 import Image from "next/image";
-import { IconGitHub, IconLinkedIn, IconMessage } from "./icons";
+import { IconGitHub } from "./icons/IconGitHub";
+import { IconLinkedIn } from "./icons/IconLinkedIn";
+import { IconMessage } from "./icons/IconMessage";
 
 export const Hero = () => {
   return (

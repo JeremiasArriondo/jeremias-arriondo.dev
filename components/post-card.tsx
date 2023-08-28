@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import CategoryList from "@/components/category-list";
-import { CardParallax } from "../card-parallax";
+import { CardParallax } from "./card-parallax";
 import { Post } from "@/.contentlayer/generated";
 import { formatDate } from "@/utils/format-date";
 

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { Post, allPosts } from "contentlayer/generated";
 
-import { Mdx } from "@/components/mdx/mdx-components";
+import { Mdx } from "@/components/mdx-components";
 
 import { Metadata } from "next";
 import Image from "next/image";
@@ -11,7 +11,7 @@ import "@/styles/mdx.css";
 import { absoluteUrl, formatDate } from "@/lib/utils";
 import { cn } from "@/lib/cn";
 import { Author } from "@/components/author";
-import RelatedPosts from "@/components/posts/related-posts";
+import RelatedPosts from "@/components/related-posts";
 // import { buttonVariants } from "@/components/ui/button"
 // import { Icons } from "@/components/icons"
 

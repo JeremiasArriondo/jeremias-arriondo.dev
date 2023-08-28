@@ -28,13 +28,13 @@ export function PostsList({ allPosts }: { allPosts: Post[] }) {
                 <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-400">
                   {formatDate(post.date)}
                 </time>
-                <Link href={`/blog/${post.slug}`}>
+                <Link href={post.slug}>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                     {post.title}
                   </h3>
                 </Link>
                 <Link
-                  href={`/blog/${post.slug}`}
+                  href={post.slug}
                   className="text-blueSecondary dark:text-bluePrimary inline-flex items-center"
                 >
                   Seguir leyendo{" "}

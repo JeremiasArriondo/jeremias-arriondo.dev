@@ -38,7 +38,7 @@ export async function generateMetadata({
   const post = await getPostFromParams(params);
 
   if (!post) {
-    return notFound();
+    notFound();
   }
 
   const url = process.env.NEXT_PUBLIC_APP_URL;
@@ -122,9 +122,9 @@ export default async function PostPage({ params }: PostPageProps) {
           <Image
             src={post.image}
             alt={post.title}
-            width={720}
-            height={405}
-            className="my-8 rounded-md transition-colors"
+            width={1200}
+            height={630}
+            className="aspect-[1200/630] object-cover my-8 rounded-md transition-colors"
             priority
           />
         )}

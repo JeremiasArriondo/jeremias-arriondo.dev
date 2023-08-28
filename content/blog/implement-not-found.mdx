@@ -1,0 +1,81 @@
+---
+title: Utilizando not-found y notFound() en Nextjs13
+description: Implementando páginas y archivos no encontrados
+image: /images/blog/implement-not-found.webp
+date: "2023-08-28"
+author: jeremiasarriondo
+categories:
+  - Next.js
+---
+
+## Implementando el archivo not-found
+
+El archivo `not-found` se utiliza para representar la interfaz de usuario cuando la notFound función se lanza dentro de un segmento de ruta.
+
+```jsx
+import Link from "next/link";
+
+export default function NotFound() {
+  return (
+    <div className="mx-auto mt-40 text-center">
+      <h2 className="mb-4 text-3xl font-bold">Post Not Found</h2>
+      <Link href="/blog">
+        <span className="mr-2">&larr;</span>
+        <span>Go to list page</span>
+      </Link>
+    </div>
+  );
+}
+```
+
+Si recordamos, al utilizar pages router, la manera que teníamos de rutear los archivos no coincidentes era utilizando la página `404`, este archivo se genera estáticamente en el momento de compilación
+
+```jsx
+#pages/404.js
+
+export default function Custom404() {
+  return <h1>404 - Page Not Found</h1>
+}
+```
+
+A partir de la versión 13.0.0 se introdujo not-found, así que es bueno saber que además de detectar los errores inesperado, el archivo raíz `app/not-found.js` también maneja las URL no coincidentes para toda la aplicación. Esto significa que a los usuarios que visiten una URL que no es manejada por tu aplicación se les mostrará la interfaz de usuario exportada en el archivo `app/not-found.js`
+
+A tener en cuenta
+
+`not-found.js` no acepta ninguna prop.
+
+## Utilizando la función notFound
+
+La invocación de la función `notFound()` genera un error del tipo `NEXT_NOT_FOUND` y finaliza la representación del segmento de ruta en el que se lanzó. Especificar un archivo no encontrado permite manejar dichos errores al representar una interfaz de usuario dentro del segmento.
+
+Un ejemplo de uso sería la siguiente implementación
+
+```jsx
+#app/user/[id]/page.js
+
+import { notFound } from 'next/navigation'
+
+async function fetchUser(id) {
+  const res = await fetch('https://...')
+  if (!res.ok) return undefined
+  return res.json()
+}
+
+export default async function Profile({ params }) {
+  const user = await fetchUser(params.id)
+
+  if (!user) {
+    notFound()
+  }
+
+  // ...
+}
+```
+
+---
+
+Si necesitas chequear la documentación directa de Nextjs, acá te comparto la misma:
+
+Archivo [not-found.js](https://nextjs.org/docs/app/api-reference/file-conventions/not-found)
+
+Function [notFoun()](https://nextjs.org/docs/app/api-reference/functions/not-found)

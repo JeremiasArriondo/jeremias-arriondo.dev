@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import PostCard from "@/components/posts/post-card";
-import { Post } from "@/types/post";
+import { Post } from "@/.contentlayer/generated";
 
 const INITIAL_NUM_POSTS = 6;
 const ADDITIONAL_NUM_POSTS = 6;

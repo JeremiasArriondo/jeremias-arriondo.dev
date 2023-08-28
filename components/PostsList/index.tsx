@@ -1,5 +1,6 @@
 "use client";
-import { Post } from "@/types/post";
+import { Post } from "@/.contentlayer/generated";
+import { formatDate } from "@/utils/format-date";
 import Link from "next/link";
 
 const CANT_POSTS = 5;
@@ -25,7 +26,7 @@ export default function PostsList({ allPosts }: { allPosts: Post[] }) {
               <li key={post.slug} className="mb-10 ml-4">
                 <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700" />
                 <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-400">
-                  {post.date}
+                  {formatDate(post.date)}
                 </time>
                 <Link href={`/blog/${post.slug}`}>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">

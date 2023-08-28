@@ -4,7 +4,7 @@ export default function CategoryList({ categories }: { categories: string[] }) {
       {categories.map((category) => (
         <span
           key={category}
-          className="text-violetPrimary dark:text-violet-400 px-4 py-2 text-sm"
+          className="text-violetPrimary dark:text-violet-400 text-sm"
         >
           #{category}
         </span>

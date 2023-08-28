@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <main>
       <section className="background-gradient">
-        <div className="container-section flow pt-16">
+        <div className="container-section flow pt-8 md:pt-16">
           <h1 className="title dark:text-white">Conoce un poco más sobre mi</h1>
           <h2 className="text-xl xs:text-2xl text-black dark:text-white">
             Hola! 👋

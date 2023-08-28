@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
+const { withContentlayer } = require("next-contentlayer");
+
 const nextConfig = {
   eslint: {
-    ignoreDuringBuilds: true
+    ignoreDuringBuilds: true,
   },
   reactStrictMode: true,
   swcMinify: true,
@@ -9,16 +11,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "www.notion.so",
-      },
-      {
-        protocol: "https",
-        hostname: "s3-us-west-2.amazonaws.com",
-      },
-    ],
+    domains: ["www.google.com", "avatar.vercel.sh"],
   },
 
   // suppress keyv warning
@@ -34,4 +27,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withContentlayer(nextConfig);

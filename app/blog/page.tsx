@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
 import PostsGrid from "@/components/posts/posts-grid";
-import SearchBar from "@/components/filter/search-bar";
-import CategoryFilter from "@/components/filter/category-filter";
+import { SearchBar } from "@/components/search-bar";
+import CategoryFilter from "@/components/category-filter";
 import { toUniqueArray } from "@/utils/to-unique-array";
 
 export const metadata = {

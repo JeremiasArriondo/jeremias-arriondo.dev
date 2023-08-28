@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
-import { Hero } from "@/components/Hero";
+import { Hero } from "@/components/hero";
 import { PostsList } from "@/components/post-list";
 import { allPosts } from "@/.contentlayer/generated";
 

@@ -10,7 +10,7 @@ import useFocus from "@/hooks/use-focus";
 import useHover from "@/hooks/use-hover";
 import { queryState } from "@/states/query";
 
-export default function SearchBar() {
+export function SearchBar() {
   const [query, setQuery] = useRecoilState(queryState);
   const { ref: hoverRef, isHovering } = useHover<HTMLDivElement>();
   const { ref: focusRef, isFocusing } = useFocus<HTMLInputElement>();

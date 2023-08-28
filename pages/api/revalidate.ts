@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { getErrorMessage } from "@/utils/get-error-message";
+import { getErrorMessage } from "@/lib/get-error-message";
 
 export default async function handler(
   req: NextApiRequest,

@@ -2,7 +2,7 @@ import { allPosts } from "contentlayer/generated";
 import { PostsGrid } from "@/components/posts-grid";
 import { SearchBar } from "@/components/search-bar";
 import { CategoryFilter } from "@/components/category-filter";
-import { toUniqueArray } from "@/utils/to-unique-array";
+import { toUniqueArray } from "@/lib/to-unique-array";
 
 export const metadata = {
   title: "Blog",

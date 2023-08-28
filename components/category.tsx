@@ -4,7 +4,7 @@ import { useRecoilState, useSetRecoilState } from "recoil";
 
 import { categoriesState } from "@/states/categories";
 import { pageState } from "@/states/page";
-import { isTouchDevice } from "@/utils/is-touch-device";
+import { isTouchDevice } from "@/lib/is-touch-device";
 
 export function Category({ category }: { category: string }) {
   const [categories, setCategories] = useRecoilState(categoriesState);

@@ -1,7 +1,7 @@
 "use client";
-import { Post } from "@/.contentlayer/generated";
-import { formatDate } from "@/utils/format-date";
 import Link from "next/link";
+import { Post } from "@/.contentlayer/generated";
+import { formatDate } from "@/lib/utils";
 
 const CANT_POSTS = 5;
 export function PostsList({ allPosts }: { allPosts: Post[] }) {

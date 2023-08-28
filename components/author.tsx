@@ -1,5 +1,5 @@
 import Link from "next/link";
-import BlurImage from "./blur-image";
+import { BlurImage } from "./blur-image";
 
 type Author = {
   [username: string]: {

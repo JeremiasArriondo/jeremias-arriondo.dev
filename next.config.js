@@ -12,16 +12,6 @@ const nextConfig = {
   },
   images: {
     domains: ["www.google.com", "avatar.vercel.sh"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "www.notion.so",
-      },
-      {
-        protocol: "https",
-        hostname: "s3-us-west-2.amazonaws.com",
-      },
-    ],
   },
 
   // suppress keyv warning

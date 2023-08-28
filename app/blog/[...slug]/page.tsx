@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { allPosts } from "contentlayer/generated";
+import { Post, allPosts } from "contentlayer/generated";
 
 import { Mdx } from "@/components/mdx/mdx-components";
 
@@ -11,6 +11,7 @@ import "@/styles/mdx.css";
 import { absoluteUrl, formatDate } from "@/lib/utils";
 import { cn } from "@/lib/cn";
 import Author from "@/components/author";
+import RelatedPosts from "@/components/posts/related-posts";
 // import { buttonVariants } from "@/components/ui/button"
 // import { Icons } from "@/components/icons"
 
@@ -37,7 +38,7 @@ export async function generateMetadata({
   const post = await getPostFromParams(params);
 
   if (!post) {
-    return {};
+    return notFound();
   }
 
   const url = process.env.NEXT_PUBLIC_APP_URL;
@@ -91,75 +92,51 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound();
   }
 
+  const relatedPosts: Post[] = allPosts.filter(
+    (p) =>
+      p.slug !== post.slug &&
+      p.categories.some((v) => post.categories.includes(v))
+  );
+
   return (
-    <article className="container-section relative max-w-3xl py-6 lg:py-10">
-      <Link
-        href="/blog"
-        className={cn("absolute left-[-200px] top-14 hidden xl:inline-flex")}
-      >
-        {/* <Icons.chevronLeft className="mr-2 h-4 w-4" /> */}
-        See all posts
-      </Link>
-      <div>
-        {post.date && (
-          <time
-            dateTime={post.date}
-            className="block text-sm text-muted-foreground"
-          >
-            Publicado el {formatDate(post.date)}
-          </time>
-        )}
-        <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
-          {post.title}
-        </h1>
-        <div className="mt-4 flex space-x-4">
-          {post.author ? <Author username={post.author} imageOnly /> : null}
-        </div>
-        {/* {authors?.length ? (
+    <>
+      <article className="container-section py-6 lg:py-10">
+        <div>
+          {post.date && (
+            <time
+              dateTime={post.date}
+              className="block text-sm text-muted-foreground"
+            >
+              Publicado el {formatDate(post.date)}
+            </time>
+          )}
+          <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
+            {post.title}
+          </h1>
           <div className="mt-4 flex space-x-4">
-            {authors.map((author) =>
-              author ? (
-                <Link
-                  key={author._id}
-                  href={`https://twitter.com/${author.twitter}`}
-                  className="flex items-center space-x-2 text-sm"
-                >
-                  <Image
-                    src={author.avatar}
-                    alt={author.title}
-                    width={42}
-                    height={42}
-                    className="rounded-full bg-white"
-                  />
-                  <div className="flex-1 text-left leading-tight">
-                    <p className="font-medium">{author.title}</p>
-                    <p className="text-[12px] text-muted-foreground">
-                      @{author.twitter}
-                    </p>
-                  </div>
-                </Link>
-              ) : null
-            )}
+            {/* @ts-expect-error Server Component */}
+            {post.author ? <Author username={post.author} /> : null}
           </div>
-        ) : null} */}
-      </div>
-      {post.image && (
-        <Image
-          src={post.image}
-          alt={post.title}
-          width={720}
-          height={405}
-          className="my-8 rounded-md border bg-muted transition-colors"
-          priority
-        />
-      )}
-      <Mdx code={post.body.code} />
-      <hr className="mt-12" />
-      <div className="flex justify-center py-6 lg:py-10">
-        <Link href="/blog" className="">
-          See all posts
-        </Link>
-      </div>
-    </article>
+        </div>
+        {post.image && (
+          <Image
+            src={post.image}
+            alt={post.title}
+            width={720}
+            height={405}
+            className="my-8 rounded-md transition-colors"
+            priority
+          />
+        )}
+        <Mdx code={post.body.code} />
+        <hr className="mt-12" />
+        <div className="flex justify-center py-6 lg:py-10">
+          <Link href="/blog" className="">
+            Volver a todos los post
+          </Link>
+        </div>
+      </article>
+      <RelatedPosts posts={relatedPosts} />
+    </>
   );
 }

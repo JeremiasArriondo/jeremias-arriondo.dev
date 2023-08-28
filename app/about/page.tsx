@@ -1,4 +1,4 @@
-import { WorkExperience } from "@/components/WorkExperience";
+import { WorkExperience } from "@/components/work-experience";
 
 export const metadata = {
   title: "Sobre mi",

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/cn";
 import NavLink from "../NavLink";
-import { ThemeToggle } from "@/components/ToggleTheme";
+import { ThemeToggle } from "@/components/toggle-theme";
 import {
   IconClose,
   IconGitHub,

@@ -2,9 +2,12 @@
   "name": "portfolio-devja",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Jeremias Arriondo"
+  },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "contentlayer build && next build",
     "start": "next start",
     "lint": "next lint"
   },

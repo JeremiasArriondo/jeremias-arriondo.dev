@@ -5,12 +5,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/cn";
 import { NavLink } from "./nav-link";
 import { ThemeToggle } from "@/components/toggle-theme";
-import {
-  IconClose,
-  IconGitHub,
-  IconHamburger,
-  IconTerminal,
-} from "@/components/icons";
+import { IconClose, IconGitHub, IconHamburger, IconTerminal } from "../icons";
 
 const NAV_ITEMS = [
   { path: "blog", name: "Blog" },

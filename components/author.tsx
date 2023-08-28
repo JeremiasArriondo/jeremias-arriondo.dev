@@ -20,7 +20,7 @@ export async function Author({
   const author: Author = {
     jeremiasarriondo: {
       name: "Jeremias Arriondo",
-      image: "/images/avatars/jeremias-arriondo.webp",
+      image: "/images/avatar/jeremias-arriondo.webp",
     },
   };
 

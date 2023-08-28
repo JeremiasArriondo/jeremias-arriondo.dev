@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 
-export default function NavLink({
+export function NavLink({
   path,
   children,
 }: {

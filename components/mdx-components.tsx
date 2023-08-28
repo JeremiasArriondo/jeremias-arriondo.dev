@@ -132,10 +132,11 @@ const components = {
   pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
     <pre
       className={cn(
-        "mb-4 mt-6 overflow-x-auto rounded-lg  border border-gray-200 dark:border-gray-800 bg-black p-4",
+        "mb-4 mt-6 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-800 bg-black p-4",
         className
       )}
       {...props}
+      style={{ backgroundColor: "none" }}
     />
   ),
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (

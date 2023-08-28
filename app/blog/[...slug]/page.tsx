@@ -105,12 +105,12 @@ export default async function PostPage({ params }: PostPageProps) {
           {post.date && (
             <time
               dateTime={post.date}
-              className="block text-sm text-muted-foreground"
+              className="block text-sm text-muted-foreground text-gray-600 dark:text-gray-400"
             >
               Publicado el {formatDate(post.date)}
             </time>
           )}
-          <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
+          <h1 className="mt-2 inline-block font-bold text-4xl leading-tight lg:text-5xl">
             {post.title}
           </h1>
           <div className="mt-4 flex space-x-4">

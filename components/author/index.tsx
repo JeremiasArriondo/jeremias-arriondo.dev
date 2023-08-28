@@ -66,7 +66,9 @@ export default async function Author({
         className="rounded-full transition-all group-hover:brightness-90"
       />
       <div className="flex flex-col">
-        <p className="font-semibold text-gray-700">{author[username].name}</p>
+        <p className="font-semibold text-gray-700 dark:text-white">
+          {author[username].name}
+        </p>
         <p className="text-sm text-gray-500">@{username}</p>
       </div>
     </Link>

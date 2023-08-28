@@ -4,7 +4,7 @@ import { formatDate } from "@/utils/format-date";
 import Link from "next/link";
 
 const CANT_POSTS = 5;
-export default function PostsList({ allPosts }: { allPosts: Post[] }) {
+export function PostsList({ allPosts }: { allPosts: Post[] }) {
   const lastPosts = allPosts
     .sort((postA, postB) => (postA.date > postB.date ? -1 : 1))
     .slice(0, CANT_POSTS);

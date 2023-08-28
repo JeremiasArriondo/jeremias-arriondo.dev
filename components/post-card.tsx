@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import CategoryList from "@/components/category-list";
-import { CardParallax } from "../Card";
+import { CardParallax } from "./card-parallax";
 import { Post } from "@/.contentlayer/generated";
-import { formatDate } from "@/utils/format-date";
+import { formatDate } from "@/lib/utils";
 
 export default function PostCard({
   post: { slug, title, description, date, image, categories },

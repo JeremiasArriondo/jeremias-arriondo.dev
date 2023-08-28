@@ -1,10 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
-import PostsGrid from "@/components/posts/posts-grid";
-import SearchBar from "@/components/filter/search-bar";
-import CategoryFilter from "@/components/filter/category-filter";
-import { toUniqueArray } from "@/utils/to-unique-array";
+import { PostsGrid } from "@/components/posts-grid";
+import { SearchBar } from "@/components/search-bar";
+import { CategoryFilter } from "@/components/category-filter";
+import { toUniqueArray } from "@/lib/to-unique-array";
 
 export const metadata = {
   title: "Blog",
@@ -14,13 +12,6 @@ export default async function BlogPage() {
   const posts = allPosts
     .filter((post) => post.published)
     .sort((postA, postB) => (postA.date > postB.date ? -1 : 1));
-
-  // const allCategories = toUniqueArray(
-  //   allPosts
-  //     .filter((post) => post.published)
-  //     .map((post) => post.categories)
-  //     .flat()
-  // ).sort();
 
   const allCategories = toUniqueArray(
     allPosts.map((post) => post.categories).flat()

@@ -1,4 +1,4 @@
-export default function Footer() {
+export function Footer() {
   return (
     <footer
       className="mt-16 flex items-center justify-center gap-8

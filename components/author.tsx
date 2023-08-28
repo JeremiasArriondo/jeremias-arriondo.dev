@@ -1,5 +1,5 @@
 import Link from "next/link";
-import BlurImage from "../blur-image";
+import { BlurImage } from "./blur-image";
 
 type Author = {
   [username: string]: {
@@ -8,7 +8,7 @@ type Author = {
   };
 };
 
-export default async function Author({
+export async function Author({
   username,
   updatedAt,
   imageOnly,
@@ -20,7 +20,7 @@ export default async function Author({
   const author: Author = {
     jeremiasarriondo: {
       name: "Jeremias Arriondo",
-      image: "/images/avatars/jeremias-arriondo.webp",
+      image: "/images/avatar/jeremias-arriondo.webp",
     },
   };
 

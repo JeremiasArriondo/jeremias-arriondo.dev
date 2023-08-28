@@ -3,7 +3,7 @@
 import { IoMdArrowRoundUp } from "react-icons/io";
 
 import useScroll from "@/hooks/use-scroll";
-import { isTouchDevice } from "@/utils/is-touch-device";
+import { isTouchDevice } from "@/lib/is-touch-device";
 
 export default function ScrollUpButton() {
   const { show, buttonRef } = useScroll();

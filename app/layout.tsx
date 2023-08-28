@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Footer from "@/components/Navigation/Footer";
-import Navbar from "@/components/Navigation/Navbar";
+import { Footer } from "@/components/layout/footer";
+import { Navbar } from "@/components/layout/navbar";
 import Provider from "@/components/provider";
 import ScrollUpButton from "@/components/scroll-up-button";
 import "@/styles/globals.css";

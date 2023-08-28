@@ -23,13 +23,13 @@ export default function RelatedPosts({ posts }: { posts: Post[] }) {
     <section className="container-section mt-10 flex flex-col">
       <h2 className="text-3xl font-bold">Posts relacionados</h2>
       <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-        {posts.slice(0, numPosts).map((post) => (
+        {posts.slice(0, numPosts).map((post, index) => (
           <div
             key={post.slug}
             className="scale-[0.8] transition-all duration-300 hover:scale-[0.85]"
           >
             <li key={post.slug}>
-              <PostCard post={post} />
+              <PostCard post={post} index={index} />
             </li>
           </div>
         ))}

@@ -10,7 +10,7 @@ import "@/styles/mdx.css";
 
 import { absoluteUrl, formatDate } from "@/lib/utils";
 import { cn } from "@/lib/cn";
-import Author from "@/components/author";
+import { Author } from "@/components/author";
 import RelatedPosts from "@/components/posts/related-posts";
 // import { buttonVariants } from "@/components/ui/button"
 // import { Icons } from "@/components/icons"

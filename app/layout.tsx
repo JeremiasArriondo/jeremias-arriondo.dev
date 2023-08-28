@@ -5,11 +5,11 @@ import { Navbar } from "@/components/layout/navbar";
 import Provider from "@/components/provider";
 import ScrollUpButton from "@/components/scroll-up-button";
 import "@/styles/globals.css";
-import { ReactNode, Suspense } from "react";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: { template: "%s | Jeremias Arriondo", default: "Jeremias Arriondo" },
-  description: "Full-stack developer. Mi blog y mas.",
+  description: "Desarrollador full-stack, escritor de posteos y más",
   keywords: [
     "jeremias arriondo, full-stack developer, web developer, next.js, blog",
   ],
@@ -21,12 +21,12 @@ export const metadata: Metadata = {
   ],
   creator: "Jeremias Arriondo",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/_static/favicons/favicon.ico",
   },
   openGraph: {
     title: "Jeremias Arriondo",
-    description: "Mi web personal",
-    siteName: "Jeremias Arriondo's website",
+    description: "Desarrollador full-stack, escritor de posteos y más",
+    siteName: "Jeremias Arriondo",
     type: "website",
   },
   robots: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "Jeremias Arriondo",
     card: "summary_large_image",
-    creator: "@Jere_Arriondo",
+    creator: "@jere_arriondo",
   },
 };
 

@@ -24,6 +24,10 @@ export async function Author({
     },
   };
 
+  if (!author[username]) {
+    return null;
+  }
+
   return imageOnly ? (
     <BlurImage
       src={author[username].image}

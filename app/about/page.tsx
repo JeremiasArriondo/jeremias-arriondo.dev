@@ -59,8 +59,8 @@ export default function AboutPage() {
           </h3>
           <p>
             Disfruto demasiado programar, pero también disfruto la vida con mi
-            familia, tengo 4 hermosas mascotas, entre ellas 1 gato🐈 y 3
-            perritos🐩🐕🐩.
+            esposa Melanie👑, además tengo 4 hermosas mascotas que conforman mi
+            valiosa familia, entre ellas 1 gato🐈 y 3 perritos🐩🐕🐩.
           </p>
           <h3 className="text-xl xs:text-2xl text-black dark:text-white">
             Contactame 📬

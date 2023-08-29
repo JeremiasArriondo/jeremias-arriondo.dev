@@ -6,8 +6,8 @@ export const IconClose = memo<JSX.IntrinsicElements["svg"]>(function IconClose(
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="1.33em"
-      height="1.33em"
+      width="2rem"
+      height="2rem"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

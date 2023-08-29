@@ -4,8 +4,8 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { FiMoreHorizontal } from "react-icons/fi";
 import ReactPaginate from "react-paginate";
 import { useRecoilState } from "recoil";
-
 import { pageState } from "@/states/page";
+import "@/styles/paginate.css";
 
 export default function Paginate({
   totalPages,

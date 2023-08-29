@@ -55,14 +55,6 @@ export default function AboutPage() {
             de los demás profesionales que comparten su conocimiento día a día.
           </p>
           <h3 className="text-xl xs:text-2xl text-black dark:text-white">
-            Fuera de programar 💜
-          </h3>
-          <p>
-            Disfruto demasiado programar, pero también disfruto la vida con mi
-            esposa Melanie👑, además tengo 4 hermosas mascotas que conforman mi
-            valiosa familia, entre ellas 1 gato🐈 y 3 perritos🐩🐕🐩.
-          </p>
-          <h3 className="text-xl xs:text-2xl text-black dark:text-white">
             Contactame 📬
           </h3>
           <p>

@@ -4,8 +4,8 @@ export const IconHamburger = memo<JSX.IntrinsicElements["svg"]>(
   function IconHamburger(props) {
     return (
       <svg
-        width="1.33em"
-        height="1.33em"
+        width="2em"
+        height="2em"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

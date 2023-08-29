@@ -8,7 +8,7 @@ import { ThemeToggle } from "@/components/toggle-theme";
 import { IconClose } from "../Icons/IconClose";
 import { IconGitHub } from "../Icons/IconGitHub";
 import { IconHamburger } from "../Icons/IconHamburger";
-import { IconTerminal } from "../Icons/IconTerminal";
+import Image from "next/image";
 
 const NAV_ITEMS = [
   { path: "blog", name: "Blog" },
@@ -28,28 +28,19 @@ export function Navbar() {
       <nav className="duration-300 backdrop-filter backdrop-blur-3xl backdrop-saturate-200 transition-shadow items-center w-full flex flex-col xs:flex-row justify-between bg-white/80 dark:bg-black/75 z-50 dark:shadow-nav-dark shadow-nav">
         <div className="container-section h-16 w-full gap-0 sm:gap-3 flex items-center justify-between">
           <div className="3xl:flex-1 flex flex-row gap-2">
-            <button
-              type="button"
-              aria-label="Menu"
-              onClick={() => setIsOpen(!isOpen)}
-              className={cn(
-                "active:scale-95 transition-transform flex xs:hidden rounded-full items-center justify-center hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link",
-
-                isOpen ? "text-link dark:text-link-dark" : ""
-              )}
-            >
-              {isOpen ? <IconClose /> : <IconHamburger />}
-            </button>
             <div className="3xl:flex-1 flex items-center">
               <Link
                 href="/"
                 aria-label="Ir al inicio"
-                className="flex text-gray-800 dark:text-gray-500"
+                className="shadow-[0px_0px_50px_-20px_#6d28d9]"
               >
-                <IconTerminal />
-                <span className="font-mono font-bold dark:text-gray-200 hover:text-slate-500 dark:hover:text-slate-500">
-                  dev-JA
-                </span>
+                <Image
+                  src={"/images/devja-logo.webp"}
+                  height={32}
+                  width={32}
+                  className="shadow-[0px_0px_50px_-20px_#6d28d9]"
+                  alt="Firma de iniciales Jeremias Arriondo"
+                />
               </Link>
             </div>
           </div>
@@ -74,6 +65,18 @@ export function Navbar() {
             >
               <IconGitHub />
             </Link>
+            <button
+              type="button"
+              aria-label="Menu"
+              onClick={() => setIsOpen(!isOpen)}
+              className={cn(
+                "active:scale-95 transition-transform flex xs:hidden rounded-full items-center justify-center hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link",
+
+                isOpen ? "text-link dark:text-link-dark" : ""
+              )}
+            >
+              {isOpen ? <IconClose /> : <IconHamburger />}
+            </button>
           </div>
         </div>
         {isOpen && (

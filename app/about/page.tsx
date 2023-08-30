@@ -2,7 +2,7 @@ import { WorkExperience } from "@/components/work-experience";
 
 export const metadata = {
   title: "Sobre mi",
-  description: "Conoce un poco más sobre mis retos, objetivos y enfoque",
+  description: "Conoce un poco más sobre mis retos, objetivos y enfoque.",
 };
 
 export default function AboutPage() {

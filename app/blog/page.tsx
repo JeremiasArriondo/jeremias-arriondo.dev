@@ -6,6 +6,7 @@ import { toUniqueArray } from "@/lib/to-unique-array";
 
 export const metadata = {
   title: "Blog",
+  description: "Posteos sobre desarrollo de softwate, diseño y más.",
 };
 
 export default async function BlogPage() {
@@ -23,8 +24,8 @@ export default async function BlogPage() {
         <div className="container-section pt-8 md:pt-16">
           <h1 className="title dark:text-white mb-4">Blog</h1>
           <p>
-            Suelo escribir sobre tecnología y soluciones a problemas en el
-            desarrollo del día a día
+            Suelo escribir sobre desarrollo de software, soluciones a errores y
+            otras ideas más
           </p>
         </div>
       </section>

@@ -11,20 +11,14 @@ export const Hero = () => {
     >
       <div className="container-section">
         <div className="mt-8 md:mt-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          {/* <div className="relative inline-flex">
-            <div
-              className="w-[80%] h-[80%] absolute inset-0 m-auto blur-3xl -z-10 rounded-full bg-violetSecondary"
-              aria-hidden="true"
-            ></div> */}
           <Image
             src="/images/avatar-squared.webp"
             width={200}
             height={200}
             className="inline-flex object-cover overflow-hidden rounded-full shadow-violetSecondary "
-            priority={true}
             alt="Picture of the author"
+            priority
           />
-          {/* </div> */}
           <div>
             <h1 className="dark:text-customGray-base text-2xl md:text-3xl">
               Hola, soy <br />
@@ -45,14 +39,6 @@ export const Hero = () => {
           </p>
           <p className="my-4">Aquí podrás conocer más sobre mi.</p>
         </div>
-        {/* <div>
-          <a
-            className="p-2 border border-violetSecondary text-violet-300 hover:text-violetPrimary rounded-md"
-            href="#"
-          >
-            Resumen - CV
-          </a>
-        </div> */}
         <p className="my-4">Encuentrame en</p>
         <div className="flex flex-wrap gap-4">
           <a
@@ -94,7 +80,7 @@ export const Hero = () => {
               height="1.5rem"
               className="text-gray-600 dark:text-customGray-base"
             />
-            Gmail
+            Email
           </a>
         </div>
       </div>

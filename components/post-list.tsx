@@ -1,14 +1,8 @@
-"use client";
 import Link from "next/link";
 import { Post } from "@/.contentlayer/generated";
 import { formatDate } from "@/lib/utils";
 
-const CANT_POSTS = 5;
 export function PostsList({ allPosts }: { allPosts: Post[] }) {
-  const lastPosts = allPosts
-    .sort((postA, postB) => (postA.date > postB.date ? -1 : 1))
-    .slice(0, CANT_POSTS);
-
   return (
     <section className="my-8 space-y-8">
       <div>
@@ -17,12 +11,12 @@ export function PostsList({ allPosts }: { allPosts: Post[] }) {
         </h2>
       </div>
       <div>
-        {lastPosts.length > 0 ? (
+        {allPosts.length > 0 ? (
           <ol
             id="posts-grid"
             className="relative border-l border-gray-200 dark:border-gray-700"
           >
-            {lastPosts.map((post) => (
+            {allPosts.map((post) => (
               <li key={post.slug} className="mb-10 ml-4">
                 <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700" />
                 <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-400">

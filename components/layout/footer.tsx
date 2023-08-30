@@ -8,7 +8,7 @@ export function Footer() {
       <a
         href="mailto:jeremiasarriondo98@gmail.com"
         rel="noopener noreferrer"
-        aria-label="Contact"
+        aria-label="Contacto mediante email"
         className="text-hover text-black dark:text-customGray-base"
       >
         Contacto

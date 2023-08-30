@@ -10,7 +10,7 @@ Bienvenido a mi página web personal y blog, aquí encontrarás contenido relaci
 ## Ejecución Local
 
 ```bash
-git clone https://github.com/JeremiasArriondo/personal-website
+git clone https://github.com/JeremiasArriondo/jeremias-arriondo.dev
 cd personal-website
 pnpm install
 pnpm dev

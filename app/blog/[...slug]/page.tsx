@@ -90,7 +90,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <>
-      <article className="container-section py-6 lg:py-10">
+      <article className="container-section py-6 lg:py-10" data-mdx-container>
         <div>
           {post.date && (
             <time

@@ -1,3 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[data-mdx-container] {
+  .anchor {
+    @apply invisible absolute -ml-8 w-full cursor-pointer !no-underline;
+  }
+
+  .anchor:after {
+    content: "⚓";
+  }
+
+  :hover > .anchor {
+    @apply visible;
+  }
+}
+
 [data-rehype-pretty-code-fragment] code {
   @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black;
   counter-reset: line;

@@ -1,6 +1,7 @@
 export function formatDate(input: string | number): string {
   const date = new Date(input);
-  return date.toLocaleDateString("es-ES", {
+  return date.toLocaleDateString("es-AR", {
+    timeZone: "UTC",
     month: "long",
     day: "numeric",
     year: "numeric",

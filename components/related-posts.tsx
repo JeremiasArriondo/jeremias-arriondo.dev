@@ -8,7 +8,7 @@ import { Post } from "@/.contentlayer/generated";
 const INITIAL_NUM_POSTS = 6;
 const ADDITIONAL_NUM_POSTS = 6;
 
-export default function RelatedPosts({ posts }: { posts: Post[] }) {
+export function RelatedPosts({ posts }: { posts: Post[] }) {
   const [numPosts, setNumPosts] = useState(INITIAL_NUM_POSTS);
 
   const handleLoadMore = () => {

@@ -1,17 +1,15 @@
-import { notFound } from "next/navigation";
-import { Post, allPosts } from "contentlayer/generated";
-
-import { Mdx } from "@/components/mdx-components";
-
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import "@/styles/mdx.css";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+import { Post, allPosts } from "contentlayer/generated";
 
 import { absoluteUrl, formatDate } from "@/lib/utils";
-import { cn } from "@/lib/cn";
+import { Mdx } from "@/components/mdx-components";
 import { Author } from "@/components/author";
-import RelatedPosts from "@/components/related-posts";
+import { RelatedPosts } from "@/components/related-posts";
+import "@/styles/mdx.css";
 
 interface PostPageProps {
   params: {

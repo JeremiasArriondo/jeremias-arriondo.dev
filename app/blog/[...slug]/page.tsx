@@ -12,8 +12,6 @@ import { absoluteUrl, formatDate } from "@/lib/utils";
 import { cn } from "@/lib/cn";
 import { Author } from "@/components/author";
 import RelatedPosts from "@/components/related-posts";
-// import { buttonVariants } from "@/components/ui/button"
-// import { Icons } from "@/components/icons"
 
 interface PostPageProps {
   params: {
@@ -34,45 +32,39 @@ async function getPostFromParams(params: { slug: string[] }) {
 
 export async function generateMetadata({
   params,
-}: PostPageProps): Promise<Metadata> {
+}: PostPageProps): Promise<Metadata | undefined> {
   const post = await getPostFromParams(params);
-
   if (!post) {
-    notFound();
+    return;
   }
 
-  const url = process.env.NEXT_PUBLIC_APP_URL;
-
-  const ogUrl = new URL(`${url}/api/og`);
-  ogUrl.searchParams.set("heading", post.title);
-  ogUrl.searchParams.set("type", "Blog Post");
-  ogUrl.searchParams.set("mode", "dark");
+  const { title, description, slug, image } = post;
+  const ogImage = image
+    ? `https://www.jeremias-arriondo.dev/${image}`
+    : `https://www.jeremias-arriondo.dev/og?title=${title}`;
 
   return {
-    title: post.title,
-    description: post.description,
-    // authors: post.author.map((author) => ({
-    //   name: author,
-    // })),
+    title: title,
+    description: description,
     openGraph: {
-      title: post.title,
-      description: post.description,
+      title,
+      description,
       type: "article",
-      url: absoluteUrl(post.slug),
+      url: absoluteUrl(slug),
       images: [
         {
-          url: ogUrl.toString(),
+          url: ogImage,
           width: 1200,
           height: 630,
-          alt: post.title,
+          alt: title,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.description,
-      images: [ogUrl.toString()],
+      title: title,
+      description: description,
+      images: [ogImage],
     },
   };
 }

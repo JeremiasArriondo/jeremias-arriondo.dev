@@ -123,7 +123,10 @@ export default async function PostPage({ params }: PostPageProps) {
         <Mdx code={post.body.code} />
         <hr className="mt-12" />
         <div className="flex justify-center py-6 lg:py-10">
-          <Link href="/blog" className="">
+          <Link
+            href="/blog"
+            className="p-2 transition-colors hover:bg-violetPrimary/10 dark:hover:bg-violetPrimary/40 rounded-md"
+          >
             Volver a todos los post
           </Link>
         </div>

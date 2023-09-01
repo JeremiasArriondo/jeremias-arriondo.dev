@@ -31,10 +31,10 @@ export const Hero = () => {
             </p>
           </div>
         </div>
-        <div className="my-12 md:text-xl text-customGray-dark dark:text-customGray-base">
+        <div className="w-full my-12 md:text-xl text-customGray-dark dark:text-customGray-base">
           <p className="md:mt-24" id="hero-description">
-            Bienvenid@ a mi página web, soy un entusiasta desarrollador <br />
-            de software enfocado en resolver y construir soluciones tanto en el
+            Bienvenid@ a mi página web, soy un entusiasta desarrollador de
+            software enfocado en resolver y construir soluciones tanto en el
             Frontend como en el Backend.
           </p>
           <p className="my-4">Aquí podrás conocer más sobre mi.</p>

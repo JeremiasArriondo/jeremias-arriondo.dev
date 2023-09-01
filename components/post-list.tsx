@@ -56,6 +56,12 @@ export function PostsList({ allPosts }: { allPosts: Post[] }) {
             No se encontraron publicaciones
           </p>
         )}
+        <Link
+          href="/blog"
+          className="p-2 transition-colors hover:bg-violetPrimary/10 dark:hover:bg-violetPrimary/40 rounded-md"
+        >
+          Ver todos los post
+        </Link>
       </div>
     </section>
   );

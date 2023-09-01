@@ -35,13 +35,11 @@ export function Category({ category }: { category: string }) {
   return (
     <button
       onClick={handleCategoryClick(category)}
-      className={`my-2 text-gray-600 mr-6 bg-gray-100 cursor-pointer rounded-full px-6 py-2 ring-violetPrimary transition-all duration-300 hover:ring-offset-4 dark:ring-offset-customGray-dark ${
-        checked
-          ? "bg-black ring-[3px] ring-offset-4 dark:bg-white dark:text-black"
-          : "bg-secondary"
-      } ${!active && "pointer-events-none opacity-25"} ${
-        active && !isTouchDevice() && "hover:ring-[3px]"
-      }`}
+      className={`my-2 border border-gray-300 text-gray-600 cursor-pointer rounded-xl px-4 transition-all duration-300
+      shadow-xl shadow-violet-400/20 hover:shadow-violet-400/40 dark:border dark:border-gray-800 dark:bg-transparent dark:text-white
+      ${checked ? "dark:text-white" : "bg-secondary"} ${
+        !active && "pointer-events-none opacity-25 shadow-none"
+      } ${active && !isTouchDevice() && ""}`}
     >
       {category}
     </button>

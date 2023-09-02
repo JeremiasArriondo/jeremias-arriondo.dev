@@ -10,19 +10,21 @@ export const Hero = () => {
       aria-labelledby="hero-description"
     >
       <div className="container-section">
-        <div className="mt-8 md:mt-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <Image
-            src="/images/avatar-squared.webp"
-            width={200}
-            height={200}
-            className="inline-flex object-cover overflow-hidden rounded-full shadow-violetSecondary "
-            alt="Picture of the author"
-            priority
-          />
+        <div className="mt-8 md:mt-16 flex flex-col items-start md:flex-row gap-8 md:gap-12">
+          <div className="mx-auto md:mx-0">
+            <Image
+              src="/images/avatar-squared.webp"
+              width={200}
+              height={200}
+              className="inline-flex object-cover overflow-hidden rounded-full shadow-violetSecondary "
+              alt="Picture of the author"
+              priority
+            />
+          </div>
           <div>
             <h1 className="dark:text-customGray-base text-2xl md:text-3xl">
               Hola, soy <br />
-              <span className="text-5xl md:text-6xl font-bold text-violetPrimary">
+              <span className="text-3xl xs:text-5xl md:text-6xl font-bold text-violetPrimary">
                 Jeremias Arriondo
               </span>
             </h1>

@@ -16,7 +16,7 @@ export function NavLink({
   return (
     <Link
       href={`/${path}`}
-      className={`text-base text-gray-500 group hover:text-violetPrimary ${
+      className={`text-base group transition-color duration-100 ease-in-out hover:text-violetPrimary ${
         isActive && "text-violetPrimary"
       }`}
     >

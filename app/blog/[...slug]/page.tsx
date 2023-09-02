@@ -129,7 +129,7 @@ export default async function PostPage({ params }: PostPageProps) {
           </Link>
         </div>
       </article>
-      <RelatedPosts posts={relatedPosts} />
+      {relatedPosts.length && <RelatedPosts posts={relatedPosts} />}
     </>
   );
 }

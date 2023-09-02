@@ -21,7 +21,7 @@ export default async function HomePage() {
     <main>
       <Hero />
       <div className="container-section mt-8 md:mt-16">
-        <PostsList allPosts={posts} />
+        {posts && <PostsList allPosts={posts} />}
       </div>
     </main>
   );

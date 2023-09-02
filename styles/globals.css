@@ -23,7 +23,6 @@
   html,
   body {
     height: 100%;
-    scroll-behavior: smooth;
   }
 
   html.dark {
@@ -58,7 +57,7 @@
   }
 
   .linked {
-    @apply border-b border-gray-300 transition-all duration-300 ease-in-out hover:border-violetSecondary dark:hover:border-violetPrimary
+    @apply border-b border-gray-300 transition-all duration-300 ease-in-out hover:border-violetSecondary dark:hover:border-violetPrimary;
   }
 
   .title {

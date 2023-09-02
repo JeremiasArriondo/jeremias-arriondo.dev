@@ -16,8 +16,8 @@ export function NavLink({
   return (
     <Link
       href={`/${path}`}
-      className={`group hover:text-violetPrimary ${
-        isActive && "text-violetPrimary"
+      className={`text-base group hover:text-violetPrimary/60 ${
+        isActive && "text-violetPrimary/80"
       }`}
     >
       {children}

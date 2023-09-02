@@ -31,8 +31,8 @@ export default async function BlogPage() {
       </section>
       <section className="container-section pt-8">
         <SearchBar />
-        <CategoryFilter allCategories={allCategories} />
-        <PostsGrid allPosts={posts} />
+        {allCategories && <CategoryFilter allCategories={allCategories} />}
+        {posts && <PostsGrid allPosts={posts} />}
       </section>
     </main>
   );

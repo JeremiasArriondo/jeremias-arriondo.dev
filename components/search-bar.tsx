@@ -8,7 +8,7 @@ import { useRecoilState } from "recoil";
 
 import useFocus from "@/hooks/use-focus";
 import useHover from "@/hooks/use-hover";
-import { queryState } from "@/states/query";
+import { queryState } from "@/lib/states/query";
 
 export function SearchBar() {
   const [query, setQuery] = useRecoilState(queryState);

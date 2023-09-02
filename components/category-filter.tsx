@@ -3,7 +3,7 @@
 import { useRecoilState } from "recoil";
 
 import { Category } from "@/components/category";
-import { categoriesState } from "@/states/categories";
+import { categoriesState } from "@/lib/states/categories";
 
 export function CategoryFilter({ allCategories }: { allCategories: string[] }) {
   const [categories, setCategories] = useRecoilState(categoriesState);

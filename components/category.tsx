@@ -2,8 +2,8 @@
 
 import { useRecoilState, useSetRecoilState } from "recoil";
 
-import { categoriesState } from "@/states/categories";
-import { pageState } from "@/states/page";
+import { categoriesState } from "@/lib/states/categories";
+import { pageState } from "@/lib/states/page";
 import { isTouchDevice } from "@/lib/is-touch-device";
 
 export function Category({ category }: { category: string }) {

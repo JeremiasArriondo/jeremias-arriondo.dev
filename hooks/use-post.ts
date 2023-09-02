@@ -2,9 +2,9 @@ import { useEffect, useMemo } from "react";
 
 import { useRecoilState, useRecoilValue } from "recoil";
 
-import { categoriesState } from "@/states/categories";
-import { pageState } from "@/states/page";
-import { queryState } from "@/states/query";
+import { categoriesState } from "@/lib/states/categories";
+import { pageState } from "@/lib/states/page";
+import { queryState } from "@/lib/states/query";
 // import { Post } from "@/types/post";
 // import { search } from "@/utils/search";
 import { toUniqueArray } from "@/lib/to-unique-array";

@@ -123,13 +123,13 @@ export default async function PostPage({ params }: PostPageProps) {
         <div className="flex justify-center py-6 lg:py-10">
           <Link
             href="/blog"
-            className="p-2 transition-colors hover:bg-violetPrimary/10 dark:hover:bg-violetPrimary/40 rounded-md"
+            className="p-2 transition-colors bg-violetPrimary/10 hover:bg-violetPrimary/30 dark:bg-violetPrimary/30 dark:hover:bg-violetPrimary/40 rounded-md"
           >
             Volver a todos los post
           </Link>
         </div>
       </article>
-      {relatedPosts.length && <RelatedPosts posts={relatedPosts} />}
+      {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
     </>
   );
 }

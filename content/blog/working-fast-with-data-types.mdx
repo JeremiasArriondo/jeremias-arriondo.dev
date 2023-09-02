@@ -1,0 +1,253 @@
+---
+title: Convertiendo rápidamente Data Types
+description: Utiliza esta herramienta para convertir un JSON a Data Types rápidamente
+image: /images/blog/converter-data-types.webp
+date: "2023-09-02"
+author: jeremiasarriondo
+categories:
+  - Mulesoft
+---
+
+## ¿Qué son los Data-Types?
+
+En MuleSoft, cuando trabajas con RAML (RESTful API Modeling Language), los "data types" se utilizan para definir la estructura de los datos que se transmiten a través de tu API. Estos tipos de datos ayudan a especificar cómo se deben formatear y validar los datos que se envían y reciben en las solicitudes y respuestas de la API. A continuación, te proporciono una breve introducción sobre cómo definir data types en RAML:
+
+1. **Crear un archivo RAML:** Comienza creando un archivo RAML en el editor de texto de tu elección. Este archivo actuará como la especificación de tu API. Por ejemplo, puedes nombrarlo **`api.raml`**.
+2. **Definir un Data Type:** Para definir un data type, utiliza la palabra clave **`types`** en tu archivo RAML. Aquí tienes un ejemplo de cómo definir un data type que representa un objeto "Usuario" con campos como nombre, correo electrónico y edad:
+
+```yaml
+# api.raml
+# ...
+
+types:
+  User:
+    properties:
+      name: string
+      email: string
+      age: number
+```
+
+> En este ejemplo, hemos definido un data type llamado "User" que tiene tres propiedades: "name" (cadena de texto), "email" (cadena de texto) y "age" (número).
+
+## ¿Dónde utilizar los Data-Types?
+
+- **Usar el Data Type en Recursos y Métodos:** Ahora puedes usar este data type en tus recursos y métodos para definir las solicitudes y respuestas. Por ejemplo, puedes definir un recurso "usuarios" con un método "GET" que devuelve una lista de usuarios:
+
+```yaml
+# api.raml
+# ...
+
+/users:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [
+                {
+                  "name": "Juan Pérez",
+                  "email": "juan@example.com",
+                  "age": 30
+                },
+                {
+                  "name": "María García",
+                  "email": "maria@example.com",
+                  "age": 25
+                }
+              ]
+```
+
+1. **Referenciar el Data Type en Respuestas:** En el ejemplo anterior, hemos utilizado el data type "User" en el cuerpo de la respuesta para indicar que la respuesta será una lista de objetos de tipo "User".
+2. **Validación y Generación de Documentación:** MuleSoft utiliza la definición de data types en RAML para validar las solicitudes y respuestas y generar automáticamente la documentación de la API. Esto facilita la comprensión y el uso de nuestro API por parte de otros desarrolladores.
+3. **Implementar la Lógica de tu API:** Después de definir la estructura de tu API en RAML, puedes utilizar MuleSoft Anypoint Studio para implementar la lógica de tu API utilizando conectores y flujos.
+
+## Ahorrando tiempo con un convertidor
+
+En el ejemplo compartido anteriormente nuestro `Data-Type` es sencillo y fácil de leer, pero que pasa cuando disponemos de un tipo de dato más extenso, tal vez algo como esto:
+
+```json
+{
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  },
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  },
+  "age": 28,
+  "gender": "Male",
+  "birthdate": "1995-03-15",
+  "nationality": "US",
+  "jobTitle": "Software Engineer",
+  "department": "Engineering",
+  "manager": "John Doe",
+  "salary": 75000,
+  "hobbies": ["Reading", "Hiking", "Cooking"],
+  "education": {
+    "degree": "Bachelor of Science in Computer Science",
+    "university": "Example University",
+    "graduationYear": 2017
+  },
+  "addressHistory": [
+    {
+      "startDate": "2015-01-10",
+      "endDate": "2018-06-30",
+      "address": "123 Main St, Cityville, USA"
+    },
+    {
+      "startDate": "2018-07-01",
+      "endDate": "2021-12-31",
+      "address": "456 Elm St, Townsville, USA"
+    }
+  ],
+  "languagesSpoken": ["English", "Spanish", "French"],
+  "certifications": ["AWS Certified Solutions Architect", "Scrum Master"],
+  "projects": [
+    {
+      "name": "Project A",
+      "description": "Developed a mobile app",
+      "year": 2016
+    },
+    {
+      "name": "Project B",
+      "description": "Implemented a CRM system",
+      "year": 2019
+    }
+  ]
+}
+```
+
+¿Verdad que escribir campo por campo nos consumiría suficiente tiempo?
+
+Bueno, recientemente estuve trabajando con Mulesoft y al trabajar con datos mucho más extensos que el compartido, se me ocurrió generar una pequeña aplicación para agilizar esto, trabajando un poco con recursión para las funciones principales y tocando un poco de CSS este fue el resultado:
+[Convetidor Data Types](https://jeremiasarriondo.github.io/converter-data-types/)
+
+Posee una interfaz sencilla para pegar un JSON y convertirlo en Data-Types, si pegamos el JSON de ejemplo, obtendremos como resultado, el siguiente Data-Type:
+
+```yaml
+#%RAML 1.0 DataType
+
+type: object
+properties:
+  id:
+    type: number
+  name:
+    type: string
+  username:
+    type: string
+  email:
+    type: string
+  address:
+    type: object
+    properties:
+      street:
+        type: string
+      suite:
+        type: string
+      city:
+        type: string
+      zipcode:
+        type: string
+      geo:
+        type: object
+        properties:
+          lat:
+            type: string
+          lng:
+            type: string
+  phone:
+    type: string
+  website:
+    type: string
+  company:
+    type: object
+    properties:
+      name:
+        type: string
+      catchPhrase:
+        type: string
+      bs:
+        type: string
+  age:
+    type: number
+  gender:
+    type: string
+  birthdate:
+    type: string
+  nationality:
+    type: string
+  jobTitle:
+    type: string
+  department:
+    type: string
+  manager:
+    type: string
+  salary:
+    type: number
+  hobbies:
+    type: array
+    items:
+      type: string
+  education:
+    type: object
+    properties:
+      degree:
+        type: string
+      university:
+        type: string
+      graduationYear:
+        type: number
+  addressHistory:
+    type: array
+    items:
+      type: object
+      properties:
+        startDate:
+          type: string
+        endDate:
+          type: string
+        address:
+          type: string
+  languagesSpoken:
+    type: array
+    items:
+      type: string
+  certifications:
+    type: array
+    items:
+      type: string
+  projects:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        year:
+          type: number
+```
+
+Como vemos, este Data-Type está listo para utilizarse en la especificación de tipos, solamente nos restaría agregar detalles para dejarlo a la necesidad.
+
+Acá te comparto la aplicación para que puedas utilizarla:
+
+> [Convetidor Data Types](https://jeremiasarriondo.github.io/converter-data-types/)
+
+Espero que este post te sirva para aprender más sobre `Data-Types` y como podemos utilizar una aplicación para generarlos más rápidamente.

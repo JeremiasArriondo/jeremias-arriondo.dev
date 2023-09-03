@@ -5,6 +5,7 @@
 [data-mdx-container] {
   .anchor {
     @apply invisible absolute -ml-8 w-full cursor-pointer !no-underline;
+    max-width: 62.5rem;
   }
 
   .anchor:after {

@@ -33,15 +33,17 @@ export default function PostCard({
               priority={index <= 1}
             />
           )}
-          <div className="flex flex-col p-4">
-            <h3 className="line-clamp-1 text-2xl dark:text-white font-extrabold">
-              {title}
-            </h3>
-            {description && (
-              <p className="mt-2 line-clamp-2 text-gray-600 dark:text-gray-400">
-                {description}
-              </p>
-            )}
+          <div className="flex flex-1 flex-col justify-between p-4">
+            <div>
+              <h3 className="h-16 line-clamp-2 text-2xl dark:text-white font-extrabold">
+                {title}
+              </h3>
+              {description && (
+                <p className="mt-2 line-clamp-2 text-gray-600 dark:text-gray-400">
+                  {description}
+                </p>
+              )}
+            </div>
             <div className="mt-2 space-y-2">
               {date && (
                 <time className="text-sm text-gray-600 dark:text-gray-400">

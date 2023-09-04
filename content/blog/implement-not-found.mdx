@@ -1,6 +1,6 @@
 ---
 title: Utilizando not-found y notFound()
-description: Trabajando con páginas y archivos no encontrados en Next.js 13
+description: Trabaja con páginas y archivos no encontrados en Next.js 13
 image: /images/blog/implement-not-found.webp
 date: "2023-08-28"
 author: jeremiasarriondo
@@ -10,7 +10,7 @@ categories:
 
 ## Implementando el archivo not-found
 
-El archivo `not-found` se utiliza para representar la interfaz de usuario cuando la notFound función se lanza dentro de un segmento de ruta.
+El archivo `not-found` se utiliza para representar la interfaz de usuario cuando la función notFound se lanza dentro de un segmento de ruta.
 
 ```jsx
 import Link from "next/link";
@@ -38,11 +38,10 @@ export default function Custom404() {
 }
 ```
 
-A partir de la versión 13.0.0 se introdujo not-found, así que es bueno saber que además de detectar los errores inesperado, el archivo raíz `app/not-found.js` también maneja las URL no coincidentes para toda la aplicación. Esto significa que a los usuarios que visiten una URL que no es manejada por tu aplicación se les mostrará la interfaz de usuario exportada en el archivo `app/not-found.js`
+A partir de la versión 13.0.0 se introdujo not-found, así que es bueno saber que además de detectar los errores inesperados, el archivo raíz `app/not-found.js` también maneja las URL no coincidentes para toda la aplicación. Esto significa que a los usuarios que visiten una URL que no es manejada por nuestra aplicación se les mostrará la interfaz de usuario exportada en el archivo `app/not-found.js`
 
-A tener en cuenta
-
-`not-found.js` no acepta ninguna prop.
+> A tener en cuenta:
+> `not-found.js` no acepta ninguna prop.
 
 ## Utilizando la función notFound
 

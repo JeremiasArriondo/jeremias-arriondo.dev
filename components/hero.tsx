@@ -22,13 +22,13 @@ export const Hero = () => {
             />
           </div>
           <div>
-            <h1 className="dark:text-customGray-base text-2xl md:text-3xl">
+            <h1 className="font-heading dark:text-customGray-base text-2xl md:text-3xl">
               Hola, soy <br />
               <span className="text-3xl xs:text-5xl md:text-6xl font-bold text-violetPrimary">
                 Jeremias Arriondo
               </span>
             </h1>
-            <p className="my-2 text-xl md:text-3xl text-slate-600 dark:text-slate-400">
+            <p className="font-heading my-2 text-xl md:text-3xl text-slate-600 dark:text-slate-400">
               Full-Stack Developer
             </p>
           </div>
@@ -41,7 +41,7 @@ export const Hero = () => {
           </p>
           <p className="my-4">Aquí podrás conocer más sobre mi.</p>
         </div>
-        <p className="my-4">Encuentrame en</p>
+        <p className="my-4 font-heading">Encuéntrame en</p>
         <div className="flex flex-wrap gap-4">
           <a
             href="https://github.com/JeremiasArriondo"

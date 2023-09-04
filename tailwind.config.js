@@ -37,6 +37,9 @@ module.exports = {
         "nav-dark":
           "0 16px 32px -16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255,255,255,.05)",
       },
+      fontFamily: {
+        heading: ["var(--font-heading)", ...defaultTheme.fontFamily.sans],
+      },
       backgroundSize: {
         "1440px": "1440px 1px",
       },

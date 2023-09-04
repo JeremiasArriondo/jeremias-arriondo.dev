@@ -62,7 +62,7 @@
 
   .title {
     font-size: clamp(1.5rem, 1rem + 5vw, 2rem);
-    @apply text-[28px] font-bold sm:text-4xl sm:font-semibold;
+    @apply font-heading text-[28px] font-bold sm:text-4xl sm:font-semibold;
   }
 
   .flow > * + * {

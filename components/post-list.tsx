@@ -6,7 +6,7 @@ export function PostsList({ allPosts }: { allPosts: Post[] }) {
   return (
     <section className="my-8 space-y-8">
       <div>
-        <h2 className="text-xl md:text-2xl dark:text-white">
+        <h2 className="font-heading text-xl md:text-2xl dark:text-white">
           Últimos posteos:
         </h2>
       </div>

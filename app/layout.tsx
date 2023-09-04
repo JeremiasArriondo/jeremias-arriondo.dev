@@ -1,11 +1,13 @@
-import { Metadata } from "next";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import Provider from "@/components/provider";
 import ScrollUpButton from "@/components/scroll-up-button";
 import "@/styles/globals.css";
 import { ReactNode } from "react";
+import { Metadata } from "next";
+import { cn } from "@/lib/cn";
 
 export const metadata: Metadata = {
   title: { template: "%s | Jeremias Arriondo", default: "Jeremias Arriondo" },
@@ -49,10 +51,15 @@ const inter = Inter({
   display: "swap",
 });
 
+const fontHeading = localFont({
+  src: "../public/fonts/CalSans-SemiBold.woff2",
+  variable: "--font-heading",
+});
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="es" suppressHydrationWarning className={inter.className}>
-      <body>
+    <html lang="es" suppressHydrationWarning>
+      <body className={cn(inter.className, fontHeading.variable)}>
         <Provider>
           <div className="dark:bg-black container-main">
             <Navbar />

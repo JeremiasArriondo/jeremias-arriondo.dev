@@ -100,7 +100,7 @@ export default async function PostPage({ params }: PostPageProps) {
               Publicado el {formatDate(post.date)}
             </time>
           )}
-          <h1 className="mt-2 inline-block font-bold text-4xl leading-tight lg:text-5xl">
+          <h1 className="mt-2 font-heading inline-block font-bold text-4xl leading-tight lg:text-5xl">
             {post.title}
           </h1>
           <div className="mt-4 flex space-x-4">

@@ -41,7 +41,7 @@ export const Hero = () => {
           </p>
           <p className="my-4">Aquí podrás conocer más sobre mi.</p>
         </div>
-        <p className="my-4 font-heading">Encuéntrame en</p>
+        <p className="my-4 font-heading">Encuéntrame en:</p>
         <div className="flex flex-wrap gap-4">
           <a
             href="https://github.com/JeremiasArriondo"

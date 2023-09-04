@@ -60,6 +60,10 @@
     @apply border-b border-gray-300 transition-all duration-300 ease-in-out hover:border-violetSecondary dark:hover:border-violetPrimary;
   }
 
+  .link {
+    @apply transition-colors duration-300 ease-in-out text-blueSecondary hover:text-bluePrimary dark:text-indigo-300 dark:hover:text-indigo-400;
+  }
+
   .title {
     font-size: clamp(1.5rem, 1rem + 5vw, 2rem);
     @apply font-heading text-[28px] font-bold sm:text-4xl sm:font-semibold;

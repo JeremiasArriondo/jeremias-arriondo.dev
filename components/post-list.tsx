@@ -5,11 +5,9 @@ import { formatDate } from "@/lib/utils";
 export function PostsList({ allPosts }: { allPosts: Post[] }) {
   return (
     <section className="my-8 space-y-8">
-      <div>
-        <h2 className="font-heading text-xl md:text-2xl dark:text-white">
-          Últimos posteos:
-        </h2>
-      </div>
+      <h2 className="font-heading text-xl md:text-2xl dark:text-white">
+        Últimos posteos:
+      </h2>
       <div>
         {allPosts.length > 0 ? (
           <ol
@@ -26,10 +24,14 @@ export function PostsList({ allPosts }: { allPosts: Post[] }) {
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                     {post.title}
                   </h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {post.description}
+                  </p>
                 </Link>
                 <Link
                   href={post.slug}
-                  className="text-blueSecondary dark:text-bluePrimary inline-flex items-center"
+                  // className="text-blueSecondary dark:text-indigo-300 inline-flex items-center"
+                  className="link inline-flex items-center"
                 >
                   Seguir leyendo{" "}
                   <svg

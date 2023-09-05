@@ -4,7 +4,7 @@ import { PostsList } from "@/components/post-list";
 import { allPosts } from "@/.contentlayer/generated";
 
 export const metadata: Metadata = {
-  title: "Inicio - Jeremias Arriondo",
+  title: "Inicio | Jeremias Arriondo",
   description: "Bienvenid@ a mi web personal.",
 };
 

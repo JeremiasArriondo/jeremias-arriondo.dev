@@ -9,7 +9,7 @@ export function Footer() {
         href="mailto:jeremiasarriondo98@gmail.com"
         rel="noopener noreferrer"
         aria-label="Contacto mediante email"
-        className="text-hover text-black dark:text-customGray-base"
+        className="link"
       >
         Contacto
       </a>
@@ -18,7 +18,7 @@ export function Footer() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Perfil de linkedIn"
-        className="text-hover text-black dark:text-customGray-base"
+        className="link"
       >
         LinkedIn
       </a>
@@ -27,7 +27,7 @@ export function Footer() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Perfil de GitHub JeremiasArriondo"
-        className="text-hover text-black dark:text-customGray-base"
+        className="link"
       >
         GitHub
       </a>

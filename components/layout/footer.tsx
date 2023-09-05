@@ -2,7 +2,7 @@ export function Footer() {
   return (
     <footer
       className="mt-16 flex items-center justify-center gap-8
-        bg-customGray-base dark:bg-customGray-dark w-full
+        bg-gray-50 dark:bg-customGray-dark w-full
         py-2 border-t border-gray-300 dark:border-customGray-dark"
     >
       <a

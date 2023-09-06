@@ -89,7 +89,7 @@ export default async function PostPage({ params }: PostPageProps) {
   );
 
   return (
-    <>
+    <main>
       <article className="container-section py-6 lg:py-10" data-mdx-container>
         <div>
           {post.date && (
@@ -130,6 +130,6 @@ export default async function PostPage({ params }: PostPageProps) {
         </div>
       </article>
       {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
-    </>
+    </main>
   );
 }

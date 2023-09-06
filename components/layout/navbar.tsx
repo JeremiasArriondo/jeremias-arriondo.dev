@@ -61,7 +61,7 @@ export function Navbar() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="Abrir perfil de GitHub"
-              className="flex items-center justify-center w-9 h-9 hover:bg-gray-200 rounded-md"
+              className="flex items-center justify-center w-9 h-9 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-md"
             >
               <IconGitHub />
             </Link>

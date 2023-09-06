@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import Provider from "@/components/provider";
+import { ThemeProvider } from "@/components/provider";
 import ScrollUpButton from "@/components/scroll-up-button";
 import "@/styles/globals.css";
 import { ReactNode } from "react";
@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={cn(inter.className, fontHeading.variable)}>
-        <Provider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="dark:bg-black container-main">
             <Navbar />
             {children}
@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <ScrollUpButton />
             </div>
           </div>
-        </Provider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -7,7 +7,7 @@ export const IconGitHub = memo<JSX.IntrinsicElements["svg"]>(
         xmlns="http://www.w3.org/2000/svg"
         width="1.5rem"
         height="1.5rem"
-        viewBox="0 -2 24 24"
+        viewBox="0 -2 20 24"
         fill="currentColor"
         {...props}
       >

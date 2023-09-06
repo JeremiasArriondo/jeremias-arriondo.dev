@@ -9,7 +9,7 @@ export const Hero = () => {
       className="background-gradient flex justify-center"
       aria-labelledby="hero-description"
     >
-      <div className="container-section">
+      <div className="container-section flow w-full">
         <div className="mt-8 md:mt-16 flex flex-col items-start md:flex-row gap-8 md:gap-12">
           <div className="mx-auto md:mx-0">
             <Image
@@ -33,13 +33,13 @@ export const Hero = () => {
             </p>
           </div>
         </div>
-        <div className="w-full my-12 md:text-xl text-customGray-dark dark:text-customGray-base">
-          <p className="md:mt-24" id="hero-description">
+        <div className="w-full my-12 flow md:text-xl text-customGray-dark dark:text-customGray-base">
+          <p id="hero-description">
             Bienvenid@ a mi página web, soy un entusiasta desarrollador de
             software enfocado en resolver y construir soluciones tanto en el
             Frontend como en el Backend.
           </p>
-          <p className="my-4">Aquí podrás conocer más sobre mi.</p>
+          <p>Aquí podrás conocer más sobre mi.</p>
         </div>
         <p className="my-4 font-heading">Encuéntrame en:</p>
         <div className="flex flex-wrap gap-4">

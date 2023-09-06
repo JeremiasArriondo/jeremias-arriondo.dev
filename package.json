@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.0.2",
     "clsx": "^2.0.0",
     "concurrently": "^8.2.1",
     "contentlayer": "0.3.1",

@@ -1,13 +1,14 @@
+import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
+import { ReactNode } from "react";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/provider";
 import ScrollUpButton from "@/components/scroll-up-button";
-import "@/styles/globals.css";
-import { ReactNode } from "react";
-import { Metadata } from "next";
 import { cn } from "@/lib/cn";
+import { Analytics } from "@vercel/analytics/react";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: { template: "%s | Jeremias Arriondo", default: "Jeremias Arriondo" },
@@ -69,6 +70,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <ScrollUpButton />
             </div>
           </div>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

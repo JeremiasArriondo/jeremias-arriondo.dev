@@ -18,7 +18,7 @@ export function CategoryFilter({ allCategories }: { allCategories: string[] }) {
 
   return (
     <div className="flex flex-col space-y-4">
-      <div className="flex justify-between mt-4 md:w-[80%]">
+      <div className="flex justify-between mt-4">
         <h2 className="text-xl font-bold">Selecciona algún tema</h2>
         <button
           onClick={handleClearAll}

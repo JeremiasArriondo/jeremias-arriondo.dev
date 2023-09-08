@@ -38,7 +38,7 @@ export function SearchBar() {
         placeholder="Busca algún post"
         onChange={handleInputChange}
         value={query}
-        className={`w-full rounded-md border dark:placeholder:text-gray-600 border-gray-300 py-2 pl-14 pr-8 text-xl font-medium hover:border-violetPrimary focus:border-violetPrimary dark:focus:border-violetSecondary focus:bg-gray-100 focus:outline-none dark:border-gray-800 dark:bg-gray-900 ${
+        className={`w-full rounded-xl border dark:placeholder:text-gray-600 border-gray-300 py-2 pl-14 pr-8 text-xl font-medium hover:border-violetPrimary focus:border-violetPrimary dark:focus:border-violetSecondary focus:bg-gray-100 focus:outline-none dark:border-gray-800 dark:bg-gray-900 ${
           isHovering && "border-violetPrimary"
         }`}
       />

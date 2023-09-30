@@ -1,0 +1,185 @@
+---
+title: Eficiencia y tiempo de ejecución de un algoritmo
+description: Para resolver un determinado problema siempre van a existir varios algoritmos diferentes. El problema es, ¿con qué criterio elegimos cuál utilizar?
+image: /images/blog/complexity/complexity-pic.webp
+date: "2023-09-30"
+author: jeremiasarriondo
+categories:
+  - Programming
+---
+
+Para resolver un determinado problema siempre van a existir diferentes algoritmos posibles.
+
+El problema es: ¿con qué criterio elegimos cuál utilizar?
+En primer instancia tal vez podemos pensar en algunos de los siguientes puntos:
+
+- Que el algoritmo sea fácil de entender, codificar y depurar
+- Que el algoritmo se ejecute lo más rápido posible
+- Que el algoritmo haga “buen uso” de la memoria
+- Que sea eficiente (utilización óptima de los recursos del sistema
+  donde se ejecutará el algoritmo)
+
+¿Cómo medimos el tiempo que tarda en ejecutarse? ¿Horas, minutos,
+segundos, milisegundos, nano? Depende del contexto.
+
+Una forma de comparar algoritmos sería entonces hacerlos correr en la misma máquina y luego ver cuál tardó menos en completar su tarea.
+El problema con este acercamiento es que solo podemos garantizar el mismo resultado en el futuro si las condiciones de ejecución siempre serán exactamente las mismas.
+Tendríamos que usar la misma computadora, con el mismo lenguaje, el mismo compilador, el mismo procesador, misma memoria, misma
+temperatura, etc.
+
+## ¿Cómo medimos el tiempo de ejecución de un algoritmo?
+
+Podemos definir el tiempo de ejecución como una función de la
+entrada, es decir de las características de los datos que
+debemos procesar.
+Para eso vamos a usar un modelo de máquina simplificada.
+
+Una máquina simplificada nos permite hacer una análisis teórico
+en donde:
+
+- Toda instrucción elemental tiene el mismo costo
+- Todo acceso a memoria tiene el mismo costo
+
+Entonces, vamos a definir el tiempo de ejecución como una
+función de la entrada **T(n)**, donde no depende de la entrada
+exacta, sino de su **tamaño**.
+
+El interés de comparar algoritmos surge para problemas grandes.
+Para problemas suficientemente chicos no suele ser tan importante qué algoritmo se utiliza.
+
+Dado que para distintos problemas el concepto de grande varı́a,
+realizaremos un análisis asintótico.
+
+- Si n es el tamaño de la entrada, nos preguntaremos cómo se
+  comporta el algoritmo cuando `n → ∞`.
+
+Ahora pensemos, dado un algoritmo en particular, ¿cómo calculamos cuánto tarda?
+Contaremos la cantidad de **operaciones elementales (OE)**.
+
+<Callout>
+  💡 ¿Qué es una **OE**? Aquellas que el procesador realiza en una cantidad de
+  tiempo acotada por una constante (que no depende del tamaño de la entrada).
+</Callout>
+
+## Hablemos sobre el mejor caso, peor caso y caso promedio
+
+Para usar el peor caso, tenemos:
+
+> T(n)=máximo valor del tiempo de ejecución para entradas de tamaño n
+
+Como T(n) depende del compilador, la máquina que usamos y otros
+factores no es posible expresarlo en segundos u otra unidad estándar
+de tiempo. Solo vamos a poder hacer observaciones del tipo: “el tiempo de ejecución de tal algoritmo es proporcional a n2”
+
+## Notación asintótica
+
+Usaremos la notación para hacer referencia a la velocidad de crecimiento de los valores de una función.
+
+Por ejemplo `T(n)` es un programa de `O(n2)` significa que para `n >= 0` y `c` constante entonces se cumple que `T(n)<= cn2`,
+Vamos a hacer un análisis asintótico porque a medida que van creciendo, distintos algoritmos pueden diferir en el tiempo que tardan en resolver el mismo problema.
+
+¿Por qué es importante que los algoritmos sean asintóticamente eficientes?
+
+| n Complejidad | 10       | 20       | 30       | 40          | 50            | 60               |
+| ------------- | -------- | -------- | -------- | ----------- | ------------- | ---------------- |
+| n             | 0,00001” | 0,00002” | 0,00003” | 0,00004”    | 0,00005”      | 0,00006”         |
+| n²            | 0,0001”  | 0,0004”  | 0,0009”  | 0,0016”     | 0,0025”       | 0,0036”          |
+| n³            | 0,001”   | 0,008”   | 0,027”   | 0,064”      | 0,125”        | 0,216”           |
+| n⁵            | 0,1”     | 3,2”     | 24,3”    | 1,7’        | 5,2’          | 13,0’            |
+| 2ⁿ            | 0,001”   | 1,0”     | 17,9’    | 12,7 días   | 35,7 años     | 366 siglos       |
+| 3ⁿ            | 0,059”   | 58,0’    | 65 años  | 3855 siglos | 2\*10⁸ siglos | 1,3\*10¹³ siglos |
+
+> fuente: Aho, Hopcroft, Ullman
+
+Entonces, el orden de `T (n)` expresa el comportamiento asintótico.
+Expresiones comunes son: orden logarı́timico, lineal, cuadrático,
+exponencial, etc.
+Vamos a presentar tres cotas para comportamiento asintótico. El objetivo
+del estudio de la complejidad algorı́tmica es poder establecer estas cotas.
+Tenemos:
+
+- `O(T (n))` (O grande), cota superior. “Se” cuanto va a tardar como máximo.
+
+- `Ω(T (n))` (omega), cota inferior. “Se” cuanto va a tardar como mínimo.
+
+- `Θ(T (n))` (theta), orden exacto. “Se” ambas cosas.
+
+## Clasificación de complejidades de “mejor” a “peor”
+
+- O(1): complejidad constante.
+- O(log (n)): complejidad logarı́tmica.
+- O(n): complejidad lineal (y cerca: O(n log (n))).
+- O(n²): complejidad cuadrática.
+- O(n³): complejidad cúbica.
+- O(nᵏ), k ≥ 1: complejidad polinomial.
+- O(2ⁿ): complejidad exponencial.
+
+<Image
+  src="/images/blog/complexity/time-to-execute.webp"
+  alt="Eficiencia y tiempo de ejecución de un algoritmo"
+  width={1607}
+  height={946}
+/>
+
+<Callout>
+En general : 1 < log (n) < nᵏ (k ≥ 1) < kⁿ < n! < nⁿ
+(donde f < g significa que la función g crece más rápido que f ).
+</Callout>
+
+## Practiquemos
+
+1. Calculemos el tiempo de ejecución de un algoritmo sencillo e indiquemos su Orden en el peor caso para el algoritmo.
+
+```python
+suma = 0
+for x in range(n):
+	suma += 1
+```
+
+- Se inicializa **`suma`** en 0, lo que toma un tiempo constante.
+- El bucle **`for`** se ejecuta n veces, donde n es el valor de entrada.
+- En cada iteración, se realiza una operación de suma que toma un tiempo constante O(1).
+
+El tiempo total de ejecución (T(n)) se puede calcular multiplicando el número de iteraciones (n) por el tiempo que toma realizar las operaciones dentro del bucle (O(1)):
+
+`T(n) = n * O(1)`
+
+`T(n) = O(n)`
+
+El tiempo de ejecución del algoritmo es lineal en función de n. Por lo tanto, el orden en el peor caso de este algoritmo es O(n). Esto significa que el tiempo de ejecución crece linealmente con el tamaño de la entrada n.
+
+2. Ahora realicemos un segundo y último caso:
+
+```python
+suma = 0
+for x in range(n):
+    for y in range(x, n):
+        suma += 1
+```
+
+- El primer bucle **`for`** se ejecuta n veces, donde n es el valor de entrada.
+- Para cada iteración del primer bucle, hay un segundo bucle **`for`** que se ejecuta desde x hasta n, donde x varía de 0 a n-1.
+
+Para calcular el tiempo total de ejecución (T(n)), debemos sumar el tiempo que toma el segundo bucle **`for`** en cada iteración del primer bucle **`for`**. El segundo bucle **`for`** se ejecuta n veces en la primera iteración, n-1 veces en la segunda iteración, n-2 veces en la tercera iteración, y así sucesivamente hasta 1 vez en la última iteración.
+
+El tiempo total de ejecución se puede calcular como una suma:
+
+`T(n) = n + (n - 1) + (n - 2) + ... + 1`
+
+Esto es una serie aritmética que se puede simplificar usando la fórmula de la suma de los primeros n números naturales:
+
+`T(n) = (n * (n + 1)) / 2`
+
+El orden en el peor caso de este algoritmo es O(n^2) porque el tiempo de ejecución crece cuadráticamente con respecto al tamaño de la entrada n.
+
+Otra manera de expresar el tiempo de ejecución es la siguiente manera:
+
+`T(n) = c + n * (n - x * c1) => O(n2)`
+
+- "c" representa un tiempo constante para operaciones fuera de los bucles.
+- "n" es el número de iteraciones del bucle exterior.
+- "n - x \* c1" representa el número de iteraciones del bucle interior en cada iteración del bucle exterior.
+
+La expresión indica que el tiempo de ejecución total se compone de un término constante "c" más un término que crece cuadráticamente con respecto a "n". Por lo tanto, el orden en el peor caso sigue siendo O(n^2), ya que el término dominante es el cuadrático en función de "n".
+
+En resumen, la complejidad computacional es una herramienta útil para analizar y comparar algoritmos en términos de su eficiencia en tiempo. En estos ejemplos, queda claro cómo un pequeño cambio en la estructura del algoritmo puede tener un impacto significativo en su tiempo de ejecución y complejidad. Es importante seleccionar algoritmos eficientes según las necesidades específicas de nuestra aplicación y considerar cómo se comportan en diferentes tamaños de entrada.

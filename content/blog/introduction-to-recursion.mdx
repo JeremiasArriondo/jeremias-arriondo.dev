@@ -1,0 +1,91 @@
+---
+title: Introducción a la recursión
+description: Aprende un poco sobre la recursividad para que puedas aprender acerca de la recursividad
+image: /images/blog/recursion.webp
+date: "2023-09-29"
+author: jeremiasarriondo
+categories:
+  - Programming
+---
+
+La **recursión** o **recursividad** es la forma en la cual se especifica un proceso basado en su propia definición.
+
+Para algunos tipos de problemas es útil tener funciones que se llaman a sí mismas. Una función recursiva es una función que se llama a sí misma.
+
+Las funciones recursivas se programan definiendo:
+
+1. Caso Base: son casos simples. Si la función es llamada con el caso base la función simplemente devuelve un resultado concreto. Toda función recursiva debe tener al menos un caso base que marque el punto en el que la recursión debe detenerse. Cuando se alcanza el caso base, la función recursiva deja de llamarse a sí misma y comienza a devolver resultados.
+2. Caso Recursivo: la función es llamada con un problema más complejo. Para hacer factible la recursión, este último debe parecerse al problema original. El paso de recursión puede dar como resultado muchas llamadas recursivas a la función con problemas más sencillos que el original.
+
+<Callout>
+💡 A tener en cuenta: las llamadas recursivas se gestionan mediante una estructura de datos llamada “pila de llamadas” o “pila de ejecución”. Cada vez que se llama a la función recursiva, se coloca una nueva entrada en la pila. Cuando se alcanza el caso base, las llamadas comienzas a resolverse y las salidas se combinan en el orden inverso de cómo se llamaron.
+
+</Callout>
+
+A fin de que la recursión en forma eventual se termine y no entre en un bucle infinito, es decir, nunca termine de ejecutarse, cada vez que la función se llame a sí misma debe ser sobre una versión ligeramente más sencilla que el problema original. Esta secuencia de problemas más pequeños deben converger en el caso base.
+
+## Ejemplo: Factorial del número entero
+
+El factorial de un entero no negativo, escrito `n!` y pronunciado factorial de n, es el producto:
+
+`n*(n-1)*(n-2)* … 1`, con 1≠1 y 0≠1.
+
+El factorial de un entero número mayor o igual a 0 puede ser calculado en forma iterativa utilizando la estructura de control for:
+
+```cpp
+#include <stdio.h>
+
+using namespace std;
+
+int main() {
+    int i, n, fact = 1;
+    n = 4;
+    for (i=1; i<=n; i++){
+        fact = fact * i;
+    }
+    printf("El factorial del número %d es %d", n, fact);
+    return 0;
+}
+```
+
+> Output: El factorial del número 4 es 24
+
+Una definición **recursiva** de la función factorial se obtiene al observar la siguiente relación: `n! = n*(n-1)!`, podemos observarlo en la siguiente imagen:
+
+<Image
+  src="/images/blog/factorial-example.webp"
+  alt="Recursión de factorial de 4"
+  width={1607}
+  height={946}
+/>
+
+La definición de la función recursiva correspondiente al factorial es la siguiente:
+
+```cpp
+#include <stdio.h>
+
+using namespace std;
+
+long factorial(long numero){
+    if (numero <= 1) return 1;
+    else return (numero * factorial(numero -1));
+}
+
+int main() {
+    int n = 4;
+    printf("El factorial del número %d es %lu", n, factorial(4));
+    return 0;
+}
+```
+
+> Utilizo una variable de tipo long porque la función factorial crece rápido. El tipo long es un entero que ocupa 4 bytes y se define en el intervalo: 2.147.483.648 a 2.147.483.647
+
+En conclusión, la recursión es una poderosa técnica de programación que nos permite abordar problemas complejos dividiéndolos en problemas más pequeños y manejables. A través de la llamada recursiva a una función desde sí misma, podemos resolver tareas de manera elegante y eficiente.
+
+<Callout>
+  💡 Divide y vencerás: la recursión en un componente clave del enfoque “divide
+  y vencerás”, que se utiliza para resolver problemas dividiéndolos en
+  subproblemas más pequeños que son más fáciles de resolver.
+</Callout>
+
+Sin embargo, es importante recordar que la recursión debe utilizarse con precaución, ya que un uso incorrecto puede llevar a problemas de desbordamiento de pila. Al comprender los conceptos básicos de la recursión y practicar su implementación, los programadores pueden agregar una herramienta valiosa a su caja de herramientas y abordar una amplia variedad de desafíos de programación de manera más eficaz.

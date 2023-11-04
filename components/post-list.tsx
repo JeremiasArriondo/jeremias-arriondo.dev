@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Post } from "@/.contentlayer/generated";
-import { formatDate } from "@/lib/utils";
+import Link from 'next/link';
+import { Post } from '@/.contentlayer/generated';
+import { formatDate } from '@/lib/utils';
 
 export function PostsList({ allPosts }: { allPosts: Post[] }) {
   return (
@@ -24,7 +24,7 @@ export function PostsList({ allPosts }: { allPosts: Post[] }) {
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-sm md:w-[70ch] text-gray-500 dark:text-gray-400">
                     {post.description}
                   </p>
                 </Link>
@@ -33,7 +33,7 @@ export function PostsList({ allPosts }: { allPosts: Post[] }) {
                   // className="text-blueSecondary dark:text-indigo-300 inline-flex items-center"
                   className="link inline-flex items-center"
                 >
-                  Seguir leyendo{" "}
+                  Seguir leyendo{' '}
                   <svg
                     className="w-3 h-3 ml-2"
                     aria-hidden="true"

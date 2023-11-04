@@ -1,0 +1,180 @@
+---
+title: Accesibilidad web
+description: Pequeños tips y recursos para la accesibilidad web
+image: /images/blog/web-accessibility.webp
+date: '2023-11-03'
+author: jeremiasarriondo
+categories:
+  - Web
+---
+
+## ¿A qué nos referimos cuando hablamos de accesibilidad web?
+
+Se trata de una práctica inclusiva para diseñar y crear productos digitales que, independientemente de la discapacidad mental o física de una persona, puedan interactuar con un sitio web, aplicación u otro producto digital de manera significativa y equivalente.
+
+## ¿Por qué es importante?
+
+La accesibilidad web promueve la inclusión digital, protege los derechos humanos y ofrece beneficios comerciales al ampliar la base de usuarios de un sitio web.
+En última instancia, la accesibilidad web es una práctica ética y socialmente responsable que demuestra el compromiso con la igualdad de oportunidades y la participación equitativa en la sociedad digital.
+
+## Principios de la accesibilidad
+
+Hay cuatro principios rectores principales de accesibilidad sobre los que se han construido las WCAG. Estos cuatro principios se conocen con el acrónimo **POUR** de Perceived, Operable, Understandable y Robust.
+
+**POUR** es una forma de abordar la accesibilidad web desglosándola en estos cuatro aspectos principales. Veamos qué significa cada uno de estos principios.
+
+| P                                                                                                                                                    | O                                                                                                                                                                      | U                                                                                                               | R                                                                                                                                                                                                     |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Este principio establece que los usuarios deben poder percibir toda la información esencial en la pantalla y debe transmitirse a múltiples sentidos. | Para este principio, los usuarios deben poder operar la interfaz del producto digital. La interfaz no puede requerir una interacción que un usuario no pueda realizar. | Por este principio, los usuarios deben comprender la información y el funcionamiento de la interfaz de usuario. | Este principio se centra en respaldar las tecnologías de asistencia y garantizar que, a medida que evolucionan los dispositivos y los agentes de usuario, el producto digital sigue siendo accesible. |
+
+A continuación mencionaremos algunas **técnicas** de diseño y desarrollo accesible.
+
+## Breve introducción a ARIA
+
+**ARIA** (Aplicaciones de Internet Enriquecidas Accesibles) es un conjunto de atributos que puede agregar a los elementos **HTML** para aumentar su accesibilidad. Estos atributos comunican el rol, el estado y la propiedad a las tecnologías de asistencia a través de las API de accesibilidad que se encuentran en los navegadores modernos. Esta comunicación ocurre a través del árbol de accesibilidad.
+
+### 5 reglas sobre cuando usar ARIA
+
+1. No uses **ARIA**. Puede sonar contradictorio pero solo utilizarlo cuando un elemento **HTML** no tiene soporte de accesibilidad.
+2. No agregue **ARIA** innecesaria a **HTML**.
+   La gran mayoria de elementos **HTML** funcionan bien desde el primer momento.
+3. Siempre admitir la navegación con teclado.
+   Todos los controles **ARIA** interactivos (no deshabilitados) deben ser accesibles mediante teclado.
+4. No ocultar elementos enfocables.
+   No agregar `role="presentation"` o `aria-hidden="true"` a elementos que deban tener el foco, incluidos los elementos con una extensión `tabindex="0"`
+5. Usar nombres accesibles para los elementos interactivo.
+   El propósito debe transmitirse al usuario antes de que sepa cómo interactuar con él.
+
+## Utilizar estructura de contenido HTML semántico
+
+Cuando utilizamos elementos HTML semánticos, el significado inherente de cada elemento se transmite al árbol de accesibilidad y lo utiliza el asistente, lo que otorga más significado al contenido que los elementos no semánticos.
+Puede haber casos en los que necesite agregar atributos ARIA adicionales para construir relaciones o mejorar la experiencia general del usuario
+
+**No hacer esto:**
+
+```html
+<div>
+  <div>...</div>
+</div>
+
+<div>
+  <p>
+    Stamp collecting, also known as philately, is the study of postage stamps,
+    stamped envelopes, postmarks, postcards, and other materials relating to
+    postal delivery.
+  </p>
+</div>
+
+<div>
+  <p>© 2023 - Darkside</p>
+</div>
+```
+
+**Mucho mejor es esto:**
+
+```html
+<header>
+  <nav>...</nav>
+</header>
+<main>
+  <section aria-label="Introduction to stamp collecting">
+    <p>
+      Stamp collecting, also known as philately, is the study of postage stamps,
+      stamped envelopes, postmarks, postcards, and other materials relating to
+      postal delivery.
+    </p>
+  </section>
+</main>
+<footer>
+  <p>© 2022 - Stamps R Awesome</p>
+</footer>
+```
+
+## Trabajando con el foco del teclado
+
+Asegurémonos que nuestros diseños y desarrollos tengan un comportamiento de focus lógico en elementos interactivos
+Mucha gente usa un teclado, u otro software/hardware que imita la funcionalidad de un teclado.
+Una gran parte de la accesibilidad del teclado se centra en el enfoque. El enfoque se refiere a qué elemento de la pantalla recibe actualmente la entrada del teclado.
+
+- Un usuario debería poder usar la tecla de tabulación para navegar y activar cada elemento interactivo en una página.
+- Los usuarios deben poder pasar elementos interactivos en un orden lógico, generalmente de izquierda a derecha y de arriba a abajo.
+- Cada elemento interactivo debe tener un estado de foco visible.
+
+## Trabajando con Tipografía
+
+Un factor importante que puede tener un fuerte impacto en la accesibilidad de las copias es el tipo de letra.
+Debemos elegir tipos de letra comunes, la forma más rápida de crear un diseño accesible es elegir un tipo de letra común (por ejemplo, Arial, Times New Roman, Calibri, Verdana y muchos otros).
+
+Los tamaños de fuente base deben definirse con un valor relativo (%, rem o em) para permitir un cambio de tamaño fácil.
+
+**No hacer esto:**
+
+```css
+h2 {
+  font-size: 16px;
+}
+```
+
+**Mucho mejor hacer esto:**
+
+```css
+h2 {
+  font-size: 1rem;
+}
+```
+
+### Mejores prácticas para la estructura y el diseño:
+
+- Usar elementos como títulos, subtítulos, listas, números, bloques de citas y otras agrupaciones visuales para dividir la página en secciones.
+- Usar párrafos, oraciones y espacios entre palabras claramente definidos.
+- Crear columnas de copia que no excedan los 80 caracteres de ancho.
+- Evite la alineación de párrafo justificada, que crea "ríos de espacio" dentro de la copia.
+
+## Trabajando con imágenes
+
+Algunos tips a tener en cuenta a la hora de utilizar imágenes:
+
+- Identificar qué imágenes son significativas y qué imágenes son decorativas.
+- Las imágenes que tienen significado deben incluir texto alternativo y posiblemente una descripción más larga.
+- Evitar usar palabras como "imagen de" o "foto de" en la descripción, ya que el lector de pantalla identificará estos tipos de archivos por usted.
+- Escribir texto alternativo como un humano y no como un robot. El relleno de palabras clave no beneficia a nadie: las personas que usan lectores de pantalla se molestarán y los algoritmos de los motores de búsqueda lo penalizarán.
+
+Ejemplo para imágenes puramente decorativas:
+
+```html
+<img src=".../Ladybug.jpg" role="presentation" />
+<img src=".../Ladybug.jpg" role="none" />
+<img src=".../Ladybug.jpg" aria-hidden="true" />
+```
+
+Ejemplo para imágenes informativas:
+
+```html
+<img
+  src=".../Ladybug_Swarm.jpg"
+  alt="A swarm of red ladybugs are eating the leaves of my prize rose bush."
+/>
+```
+
+## Trabajando con colores y contraste
+
+Sin buenos niveles de contraste de color, las palabras, los íconos y otros elementos gráficos son difíciles de descubrir y el diseño puede volverse inaccesible rápidamente. Pero también es importante prestar atención a cómo se usa el color en la pantalla, ya que no se puede usar el color solo para transmitir información, acciones o distinguir un elemento visual.
+El grupo WAI creó una fórmula de contraste de color para garantizar que exista suficiente contraste entre el texto y su fondo.
+
+<Callout>
+💡 (L1 + 0.05) / (L2 + 0.05)
+
+L1 es la luminancia relativa del color más claro.
+L2 es la luminancia relativa de los colores más oscuros.
+
+</Callout>
+
+Afortunadamente, no se requieren matemáticas avanzadas, ya que hay muchas herramientas que harán los cálculos de contraste de color por nosotros, pruebe utilizar [el selector de color de las herramientas para desarrolladores de Chrome](https://developer.chrome.com/docs/devtools/accessibility/reference/?hl=es-419#contrast).
+
+## Resumen
+
+La accesibilidad web es esencial para garantizar que todas las personas puedan acceder a la información y los servicios web disponibles, es necesario que la incorporemos en nuestros desarrollos. Es vital diseñar con empatía y pensar mucho más allá del usuario, recordemos que la web es para **todos**.
+
+¿Te interesó este artículo y quieres saber más sobre accesibilidad web? No pierdas más tiempo y aprende sobre accesibilidad con el curso en el cual está basado este artículo:
+
+[Learn Accessibility](https://web.dev/learn/accessibility/)

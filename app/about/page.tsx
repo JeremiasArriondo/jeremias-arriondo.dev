@@ -5,7 +5,23 @@ export const metadata = {
   description: "Conoce un poco más sobre mis retos, objetivos y enfoque.",
 };
 
+const programStartDate = '2021-08-02';
+
 export default function AboutPage() {
+  function calculateYearsFromDate(startDate = programStartDate) {
+    const start = new Date(startDate); 
+    const today = new Date();    
+    let yearsDifference = today.getFullYear() - start.getFullYear();
+    if (
+        today.getMonth() < start.getMonth() || 
+        (today.getMonth() === start.getMonth() && today.getDate() < start.getDate())
+    ) {
+        yearsDifference--;
+    }
+    return yearsDifference;
+  }
+  const years = calculateYearsFromDate();
+  
   return (
     <main>
       <section className="background-gradient">
@@ -16,7 +32,8 @@ export default function AboutPage() {
           </h2>
           <p>
             Me llamo Jeremias Arriondo, y soy desarrollador de software. Comencé
-            en esta profesión hace aproximadamente 2 años.
+            en esta profesión hace aproximadamente {years} años.
+            
           </p>
           <h3 className="text-xl xs:text-2xl text-black dark:text-white">
             Enfoque y objetivos 🎯
@@ -54,6 +71,16 @@ export default function AboutPage() {
             , pero también me considero autodidacta. Por eso, valoro el esfuerzo
             de los demás profesionales que comparten su conocimiento día a día.
           </p>
+          <p>Actualmente me encuentro estudiando la Licenciatura en Informática en la{" "}  
+            <a
+              href="https://21.edu.ar/"
+              className="linked"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Universidad del Siglo 21
+            </a>.
+           </p>
           <h3 className="text-xl xs:text-2xl text-black dark:text-white">
             Contactame 📬
           </h3>

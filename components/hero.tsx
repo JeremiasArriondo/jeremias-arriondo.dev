@@ -2,6 +2,7 @@ import Image from "next/image";
 import { IconGitHub } from "./Icons/IconGitHub";
 import { IconLinkedIn } from "./Icons/IconLinkedIn";
 import { IconMessage } from "./Icons/IconMessage";
+import Link from "next/link";
 
 export const Hero = () => {
   return (
@@ -39,7 +40,7 @@ export const Hero = () => {
             software enfocado en resolver y construir soluciones tanto en el
             Frontend como en el Backend.
           </p>
-          <p>Aquí podrás conocer más sobre mi.</p>
+          <p> Aquí podrás conocer <Link href="/about" target="_self" className="link">más sobre mi.</Link></p>
         </div>
         <p className="my-4 font-heading">Encuéntrame en:</p>
         <div className="flex flex-wrap gap-4">

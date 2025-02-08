@@ -5,10 +5,6 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  swcMinify: true,
-  experimental: {
-    appDir: true,
-  },
   images: {
     domains: ["www.google.com", "avatar.vercel.sh"],
   },

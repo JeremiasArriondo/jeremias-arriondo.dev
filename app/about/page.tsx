@@ -4,7 +4,6 @@ export const metadata = {
   title: "Sobre mi",
   description: "Conoce un poco más sobre mis retos, objetivos y enfoque.",
 };
-
 const programStartDate = '2021-08-02';
 
 export default function AboutPage() {
@@ -21,7 +20,7 @@ export default function AboutPage() {
     return yearsDifference;
   }
   const years = calculateYearsFromDate();
-  
+
   return (
     <main>
       <section className="background-gradient">
@@ -33,7 +32,6 @@ export default function AboutPage() {
           <p>
             Me llamo Jeremias Arriondo, y soy desarrollador de software. Comencé
             en esta profesión hace aproximadamente {years} años.
-            
           </p>
           <h3 className="text-xl xs:text-2xl text-black dark:text-white">
             Enfoque y objetivos 🎯

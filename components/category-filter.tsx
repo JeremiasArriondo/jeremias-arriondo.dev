@@ -1,12 +1,11 @@
 "use client";
 
-import { useRecoilState } from "recoil";
-
 import { Category } from "@/components/category";
 import { categoriesState } from "@/lib/states/categories";
+import { useAtom } from "jotai";
 
 export function CategoryFilter({ allCategories }: { allCategories: string[] }) {
-  const [categories, setCategories] = useRecoilState(categoriesState);
+  const [categories, setCategories] = useAtom(categoriesState);
   const clearAllActive = categories.selected.length > 0;
 
   const handleClearAll = () => {

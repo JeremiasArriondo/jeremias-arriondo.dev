@@ -4,14 +4,15 @@ import { ChangeEvent } from "react";
 
 import { BsSearch } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
-import { useRecoilState } from "recoil";
 
 import useFocus from "@/hooks/use-focus";
 import useHover from "@/hooks/use-hover";
 import { queryState } from "@/lib/states/query";
+import { useAtom } from "jotai";
 
-export function SearchBar() {
-  const [query, setQuery] = useRecoilState(queryState);
+export const SearchBar = () => {
+  
+  const [query, setQuery] = useAtom(queryState);
   const { ref: hoverRef, isHovering } = useHover<HTMLDivElement>();
   const { ref: focusRef, isFocusing } = useFocus<HTMLInputElement>();
 

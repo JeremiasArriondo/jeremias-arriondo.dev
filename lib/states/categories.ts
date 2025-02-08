@@ -1,9 +1,6 @@
-import { atom } from "recoil";
+import { atom } from "jotai";
 
 export const categoriesState = atom<{ selected: string[]; active: string[] }>({
-  key: "categoriesState",
-  default: {
-    selected: [],
-    active: [],
-  },
+  selected: [],
+  active: [],
 });

@@ -1,6 +1,3 @@
-import { atom } from "recoil";
+import { atom } from "jotai";
 
-export const pageState = atom<number>({
-  key: "pageState",
-  default: 1,
-});
+export const pageState = atom<number>(1);

@@ -1,7 +1,5 @@
 import { useEffect, useMemo } from "react";
 
-import { useRecoilState, useRecoilValue } from "recoil";
-
 import { categoriesState } from "@/lib/states/categories";
 import { pageState } from "@/lib/states/page";
 import { queryState } from "@/lib/states/query";
@@ -10,13 +8,14 @@ import { queryState } from "@/lib/states/query";
 import { toUniqueArray } from "@/lib/to-unique-array";
 import { Post } from "@/.contentlayer/generated";
 import { CategoriesPost } from "@/types/post";
+import { useAtom, useAtomValue } from "jotai";
 
 const POST_PER_PAGE = 12;
 
 export default function usePosts(allPosts: Post[]) {
-  const page = useRecoilValue(pageState);
-  const query = useRecoilValue(queryState);
-  const [categories, setCategories] = useRecoilState(categoriesState);
+  const page = useAtomValue(pageState);
+  const query = useAtomValue(queryState);
+  const [categories, setCategories] = useAtom(categoriesState);
 
   const allPostsFiltered = useMemo(
     () =>

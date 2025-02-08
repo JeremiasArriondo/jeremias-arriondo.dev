@@ -3,9 +3,9 @@
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { FiMoreHorizontal } from "react-icons/fi";
 import ReactPaginate from "react-paginate";
-import { useRecoilState } from "recoil";
 import { pageState } from "@/lib/states/page";
 import "@/styles/paginate.css";
+import { useAtom } from "jotai";
 
 export default function Paginate({
   totalPages,
@@ -14,7 +14,7 @@ export default function Paginate({
   totalPages: number;
   elementToScroll: HTMLElement | null;
 }) {
-  const [page, setPage] = useRecoilState(pageState);
+  const [page, setPage] = useAtom(pageState);
 
   const handlePageChange = ({ selected }: { selected: number }) => {
     setPage(selected + 1);

@@ -1,6 +1,3 @@
-import { atom } from "recoil";
+import { atom } from "jotai";
 
-export const queryState = atom<string>({
-  key: "queryState",
-  default: "",
-});
+export const queryState = atom<string>("");

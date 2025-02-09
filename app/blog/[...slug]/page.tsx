@@ -10,6 +10,7 @@ import { Mdx } from "@/components/mdx-components";
 import { Author } from "@/components/author";
 import { RelatedPosts } from "@/components/related-posts";
 import "@/styles/mdx.css";
+import { getMDXComponent } from "next-contentlayer2/hooks";
 
 interface PostPageProps {
   params: {
@@ -18,9 +19,9 @@ interface PostPageProps {
 }
 
 async function getPostFromParams(params: { slug: string[] }) {
-  const slug = params?.slug?.join("/");
-  const post = allPosts.find((post) => post.slugAsParams === slug);
-
+  const slug = 
+  params?.slug?.join("/");
+  const post = allPosts.find((post) => post._raw.flattenedPath === slug);
   if (!post) {
     null;
   }
@@ -77,7 +78,6 @@ export async function generateStaticParams(): Promise<
 
 export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostFromParams(params);
-
   if (!post) {
     notFound();
   }
@@ -87,7 +87,7 @@ export default async function PostPage({ params }: PostPageProps) {
       p.slug !== post.slug &&
       p.categories.some((v) => post.categories.includes(v))
   );
-
+  
   return (
     <main>
       <article className="container-section py-6 lg:py-10" data-mdx-container>

@@ -1,4 +1,4 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import { defineDocumentType, makeSource } from 'contentlayer2/source-files';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
@@ -8,17 +8,17 @@ import remarkGfm from 'remark-gfm';
 const computedFields = {
   slug: {
     type: 'string',
-    resolve: (doc) => `/${doc._raw.flattenedPath}`
+    resolve: (doc) => `/blog/${doc._raw.flattenedPath}`
   },
   slugAsParams: {
     type: 'string',
     resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/')
-  }
+  },
 };
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: `blog/**/*.mdx`,
+  filePathPattern: `**/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: {
@@ -65,11 +65,12 @@ export const Post = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-  contentDirPath: './content',
+  contentDirPath: 'posts',
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [remarkGfm],
+    // remarkPlugins: [remarkGfm],
     rehypePlugins: [
+      remarkGfm,
       rehypeSlug,
       [
         rehypePrettyCode,

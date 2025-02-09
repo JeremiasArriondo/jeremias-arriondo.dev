@@ -11,16 +11,13 @@ import { Author } from "@/components/author";
 import { RelatedPosts } from "@/components/related-posts";
 import "@/styles/mdx.css";
 
-interface PostPageProps {
-  params: {
-    slug: string[];
-  };
-}
+type Params = Promise<{
+  slug: string;
+}>
 
-async function getPostFromParams(params: { slug: string[] }) {
-  const slug = params?.slug?.join("/");
-  const post = allPosts.find((post) => post.slugAsParams === slug);
-
+async function getPostFromParams(params: { slug: string }) {
+  const slug = params.slug;
+  const post = allPosts.find((post) => post._raw.flattenedPath === slug);
   if (!post) {
     null;
   }
@@ -28,9 +25,10 @@ async function getPostFromParams(params: { slug: string[] }) {
   return post;
 }
 
-export async function generateMetadata({
-  params,
-}: PostPageProps): Promise<Metadata | undefined> {
+export async function generateMetadata(props: {
+  params: Params,
+}): Promise<Metadata | undefined> {
+  const params = await props.params;
   const post = await getPostFromParams(params);
   if (!post) {
     return;
@@ -42,6 +40,7 @@ export async function generateMetadata({
     : `https://www.jeremias-arriondo.dev/og?title=${title}`;
 
   return {
+    metadataBase: new URL('https://www.jeremias-arriondo.dev'),
     title: title,
     description: description,
     openGraph: {
@@ -67,17 +66,15 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams(): Promise<
-  PostPageProps["params"][]
-> {
+export async function generateStaticParams() {
   return allPosts.map((post) => ({
-    slug: post.slugAsParams.split("/"),
+    slug: post._raw.flattenedPath,
   }));
 }
 
-export default async function PostPage({ params }: PostPageProps) {
+export default async function PostPage(props: { params : Params }) {
+  const params = await props.params;
   const post = await getPostFromParams(params);
-
   if (!post) {
     notFound();
   }
@@ -87,7 +84,7 @@ export default async function PostPage({ params }: PostPageProps) {
       p.slug !== post.slug &&
       p.categories.some((v) => post.categories.includes(v))
   );
-
+  
   return (
     <main>
       <article className="container-section py-6 lg:py-10" data-mdx-container>

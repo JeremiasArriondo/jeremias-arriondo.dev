@@ -1,14 +1,13 @@
 "use client";
 
-import { useRecoilState, useSetRecoilState } from "recoil";
-
 import { categoriesState } from "@/lib/states/categories";
 import { pageState } from "@/lib/states/page";
 import { isTouchDevice } from "@/lib/is-touch-device";
+import { useAtom, useSetAtom } from "jotai";
 
 export function Category({ category }: { category: string }) {
-  const [categories, setCategories] = useRecoilState(categoriesState);
-  const setPage = useSetRecoilState(pageState);
+  const [categories, setCategories] = useAtom(categoriesState);
+  const setPage = useSetAtom(pageState);
   const checked = categories.selected.includes(category);
   const active = categories.active.includes(category);
 

@@ -1,13 +1,9 @@
 /** @type {import('next').NextConfig} */
-const { withContentlayer } = require("next-contentlayer");
+const { withContentlayer } = require("next-contentlayer2");
 
 const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
-  },
-  swcMinify: true,
-  experimental: {
-    appDir: true,
   },
   images: {
     domains: ["www.google.com", "avatar.vercel.sh"],

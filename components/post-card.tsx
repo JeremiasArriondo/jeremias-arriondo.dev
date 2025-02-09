@@ -15,6 +15,8 @@ export default function PostCard({
   post: Post;
   index: number;
 }) {
+
+  console.log(slug)
   return (
     <CardParallax>
       <Link href={slug}>

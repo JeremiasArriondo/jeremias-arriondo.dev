@@ -8,7 +8,7 @@ import remarkGfm from 'remark-gfm';
 const computedFields = {
   slug: {
     type: 'string',
-    resolve: (doc) => `/posts/${doc._raw.flattenedPath}`
+    resolve: (doc) => `/blog/${doc._raw.flattenedPath}`
   },
   slugAsParams: {
     type: 'string',
@@ -68,8 +68,9 @@ export default makeSource({
   contentDirPath: 'posts',
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [remarkGfm],
+    // remarkPlugins: [remarkGfm],
     rehypePlugins: [
+      remarkGfm,
       rehypeSlug,
       [
         rehypePrettyCode,

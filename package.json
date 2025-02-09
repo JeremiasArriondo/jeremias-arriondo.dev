@@ -6,7 +6,7 @@
     "name": "Jeremias Arriondo"
   },
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -28,7 +28,7 @@
     "rehype-autolink-headings": "^6.1.1",
     "rehype-pretty-code": "^0.10.0",
     "rehype-slug": "^5.1.0",
-    "remark-gfm": "^4.0.0",
+    "remark-gfm": "4.0.0",
     "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {

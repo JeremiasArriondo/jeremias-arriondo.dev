@@ -1,0 +1,91 @@
+---
+title: Inyección de dependencias en NestJs
+description: Comprendiendo de manera sencilla la inyección de dependencias en NestJS
+image: /images/blog/nest-og.webp
+date: '2025-02-09'
+author: jeremiasarriondo
+categories:
+  - NestJS
+---
+
+La inyección de dependencias es un patrón de diseño que tiene como objetivo reducir el acoplamiento entre componentes al pasar las dependencias de estos como parámetros en lugar de ser instanciadas manualmente.
+
+NestJS hace fuerte uso de este enfoque, analicemos en profundidad este mecanismo y como podemos aplicarlo prácticamente.
+
+Ejemplo sencillo
+
+## 1 - Crear un servicio
+
+Este servicio será inyectado en un controlador
+
+```js
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class HelloService {
+  getHello(): string {
+    return '¡Hola desde el servicio!';
+  }
+}
+```
+
+<Callout>
+  📖 @Injectable() marca la clase como un proveedor que puede ser inyectado
+</Callout>
+
+## 2 - Inyectar el servicio en un controlador
+
+Ahora lo usamos en un 
+
+```js
+import { Controller, Get } from '@nestjs/common';
+import { HelloService } from './hello.service';
+
+@Controller('hello')
+export class HelloController {
+  constructor(private readonly helloService: HelloService) {}
+
+  @Get()
+  getHello(): string {
+    return this.helloService.getHello();
+  }
+}
+```
+<Callout>
+  📖 private readonly helloService: HelloService en el constructor permite que NestJS inyecte automáticamente la instancia del servicio.
+</Callout>
+
+## 3 - Registrar en el Módulo
+
+Para que el sistema de inyección de dependencias funcione, debemos registrar el servicio y el controlador en un módulo.
+
+```js
+import { Module } from '@nestjs/common';
+import { HelloService } from './hello.service';
+import { HelloController } from './hello.controller';
+
+@Module({
+  controllers: [HelloController],
+  providers: [HelloService],
+})
+export class HelloModule {}
+```
+
+<Callout>
+    💡 `controllers: [HelloController]` → Registra el controlador.
+    💡 `providers: [HelloService]` → Registra el servicio para que pueda ser inyectado.
+</Callout>
+
+### Probando el código
+
+Si ejecutamos la aplicación y visitamos `http://localhost:3000/hello`, deberiamos ver:
+
+```shell
+¡Hola desde el servicio!
+```
+
+## Que ventajas ofrece?
+
+- Separa la lógica de negocio del código que la consume.
+- Facilita la reutilización y el testing (puedes hacer mocks fácilmente).
+- Reduce el acoplamiento entre clases y módulos.

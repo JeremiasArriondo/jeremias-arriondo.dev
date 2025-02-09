@@ -54,6 +54,7 @@ export const Post = defineDocumentType(() => ({
           'Mulesoft',
           'Programming',
           'Web',
+          'NestJS',
           'Sin categoría'
         ],
         default: 'Sin categoría'

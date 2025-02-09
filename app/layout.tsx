@@ -11,6 +11,7 @@ import { Analytics } from "@vercel/analytics/react";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.jeremias-arriondo.dev'),
   title: { template: "%s | Jeremias Arriondo", default: "Jeremias Arriondo" },
   description: "Desarrollador full-stack, escritor de posteos y más",
   keywords: [

@@ -1,7 +1,8 @@
-import { Metadata } from "next";
+import { allPosts } from "@/.contentlayer/generated";
+import { BannerContact } from "@/components/banner-contact";
 import { Hero } from "@/components/hero";
 import { PostsList } from "@/components/post-list";
-import { allPosts } from "@/.contentlayer/generated";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Inicio | Jeremias Arriondo",
@@ -22,6 +23,9 @@ export default async function HomePage() {
       <Hero />
       <div className="container-section mt-8 md:mt-16">
         {posts && <PostsList allPosts={posts} />}
+      </div>
+      <div className="container-section">
+        <BannerContact />
       </div>
     </main>
   );

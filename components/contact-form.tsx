@@ -60,7 +60,7 @@ export const ContactForm = () => {
   return (
     <Form {...form}>
       <form
-        className="grid grid-cols-3 items-center p-4 lg:p-6"
+        className="grid grid-cols-3 items-center"
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <div className="col-span-3 flex flex-col gap-4 lg:col-span-3 lg:gap-6">

@@ -117,6 +117,11 @@
     @apply font-heading text-[28px] font-bold sm:text-4xl sm:font-semibold;
   }
 
+  .subtitle {
+    font-size: clamp(1.25rem, 0.875rem + 4vw, 1.75rem);
+    @apply font-heading text-[22px] font-medium sm:text-3xl sm:font-normal;
+  }
+
   .flow > * + * {
     margin-top: 1rem;
   }

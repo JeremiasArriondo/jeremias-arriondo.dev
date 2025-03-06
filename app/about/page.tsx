@@ -1,21 +1,23 @@
 import { WorkExperience } from "@/components/work-experience";
+import Link from "next/link";
 
 export const metadata = {
   title: "Sobre mi",
   description: "Conoce un poco más sobre mis retos, objetivos y enfoque.",
 };
-const programStartDate = '2021-08-02';
+const programStartDate = "2021-08-02";
 
 export default function AboutPage() {
   function calculateYearsFromDate(startDate = programStartDate) {
-    const start = new Date(startDate); 
-    const today = new Date();    
+    const start = new Date(startDate);
+    const today = new Date();
     let yearsDifference = today.getFullYear() - start.getFullYear();
     if (
-        today.getMonth() < start.getMonth() || 
-        (today.getMonth() === start.getMonth() && today.getDate() < start.getDate())
+      today.getMonth() < start.getMonth() ||
+      (today.getMonth() === start.getMonth() &&
+        today.getDate() < start.getDate())
     ) {
-        yearsDifference--;
+      yearsDifference--;
     }
     return yearsDifference;
   }
@@ -69,7 +71,9 @@ export default function AboutPage() {
             , pero también me considero autodidacta. Por eso, valoro el esfuerzo
             de los demás profesionales que comparten su conocimiento día a día.
           </p>
-          <p>Actualmente me encuentro estudiando la Licenciatura en Informática en la{" "}  
+          <p>
+            Actualmente me encuentro estudiando la Licenciatura en Informática
+            en la{" "}
             <a
               href="https://21.edu.ar/"
               className="linked"
@@ -77,17 +81,18 @@ export default function AboutPage() {
               target="_blank"
             >
               Universidad del Siglo 21
-            </a>.
-           </p>
+            </a>
+            .
+          </p>
           <h3 className="text-xl xs:text-2xl text-black dark:text-white">
             Contactame 📬
           </h3>
           <p>
             Si estás buscando un desarrollador de software confiable para
             diseñar ideas y llevarlas a cabo, no dudes en{" "}
-            <a href="mailto:jeremiasarriondo98@gmail.com" className="linked">
+            <Link href="/contact" className="linked">
               contactarme
-            </a>
+            </Link>
             . Gracias por tomarte el tiempo para aprender más sobre mi.
           </p>
         </div>

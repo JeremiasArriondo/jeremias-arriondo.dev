@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 const contactFormSchema = z.object({
@@ -50,8 +51,9 @@ export const ContactForm = () => {
       });
       if (!res.ok) throw new Error("Error al enviar el mensaje");
       form.reset();
+      toast("El email fue enviado correctamente");
     } catch (error) {
-      console.error(error);
+      toast("El email no pudo ser entregado");
     }
   };
 

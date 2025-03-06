@@ -36,6 +36,7 @@
     "rehype-slug": "^5.1.0",
     "remark-gfm": "4.0.0",
     "resend": "^4.1.2",
+    "sonner": "^2.0.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.2"

@@ -48,10 +48,8 @@ export const ContactForm = () => {
         },
         body: JSON.stringify(values),
       });
-
-      console.log(res);
-
       if (!res.ok) throw new Error("Error al enviar el mensaje");
+      form.reset();
     } catch (error) {
       console.error(error);
     }

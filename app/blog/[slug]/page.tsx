@@ -103,7 +103,11 @@ export default async function PostPage(props: { params: Params }) {
           </h1>
           <div className="mt-4 flex space-x-4">
             {post.author ? (
-              <ViewTransition name="hero-image">
+              <ViewTransition
+                name="hero-image"
+                className="via-blur"
+                exit="duration-100"
+              >
                 <Author username={post.author} />
               </ViewTransition>
             ) : null}

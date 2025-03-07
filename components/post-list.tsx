@@ -7,9 +7,11 @@ import { unstable_ViewTransition as ViewTransition } from "react";
 export function PostsList({ allPosts }: { allPosts: Post[] }) {
   return (
     <section className="my-8 space-y-8">
-      <h2 className="font-heading text-xl md:text-2xl dark:text-white">
-        Últimos posteos:
-      </h2>
+      <ViewTransition name="title-post">
+        <h2 className="font-heading text-xl md:text-2xl dark:text-white">
+          Últimos posteos:
+        </h2>
+      </ViewTransition>
       <div>
         {allPosts.length > 0 ? (
           <ol

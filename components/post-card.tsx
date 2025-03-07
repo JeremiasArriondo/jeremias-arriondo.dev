@@ -1,15 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
-import CategoryList from "@/components/category-list";
-import { CardParallax } from "./card-parallax";
 import { Post } from "@/.contentlayer/generated";
+import CategoryList from "@/components/category-list";
 import { formatDate } from "@/lib/utils";
+import Image from "next/image";
+import { unstable_ViewTransition as ViewTransition } from "react";
+import { CardParallax } from "./card-parallax";
 
 export default function PostCard({
-  post: { slug, title, description, date, image, categories },
+  post: { slug, title, description, date, image, categories, _raw },
   index,
 }: {
   post: Post;
@@ -24,14 +25,16 @@ export default function PostCard({
         bg-white/20 dark:bg-black/50 bg-clip-padding backdrop-blur-lg backdrop-filter"
         >
           {image && (
-            <Image
-              src={image}
-              alt={title}
-              width={804}
-              height={452}
-              className="aspect-[1200/630] object-cover rounded-t-md transition-colors"
-              priority={index <= 1}
-            />
+            <ViewTransition name={_raw.flattenedPath}>
+              <Image
+                src={image}
+                alt={title}
+                width={804}
+                height={452}
+                className="aspect-[1200/630] object-cover rounded-t-md transition-colors"
+                priority={index <= 1}
+              />
+            </ViewTransition>
           )}
           <div className="flex flex-1 flex-col justify-between p-4">
             <div>

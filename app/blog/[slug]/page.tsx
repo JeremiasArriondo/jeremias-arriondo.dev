@@ -1,19 +1,20 @@
-import Image from "next/image";
-import Link from "next/link";
 import { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Post, allPosts } from "contentlayer/generated";
 
-import { absoluteUrl, formatDate } from "@/lib/utils";
-import { Mdx } from "@/components/mdx-components";
 import { Author } from "@/components/author";
+import { Mdx } from "@/components/mdx-components";
 import { RelatedPosts } from "@/components/related-posts";
+import { absoluteUrl, formatDate } from "@/lib/utils";
 import "@/styles/mdx.css";
+import Image from "next/image";
+import { unstable_ViewTransition as ViewTransition } from "react";
 
 type Params = Promise<{
   slug: string;
-}>
+}>;
 
 async function getPostFromParams(params: { slug: string }) {
   const slug = params.slug;
@@ -26,7 +27,7 @@ async function getPostFromParams(params: { slug: string }) {
 }
 
 export async function generateMetadata(props: {
-  params: Params,
+  params: Params;
 }): Promise<Metadata | undefined> {
   const params = await props.params;
   const post = await getPostFromParams(params);
@@ -40,7 +41,7 @@ export async function generateMetadata(props: {
     : `https://www.jeremias-arriondo.dev/og?title=${title}`;
 
   return {
-    metadataBase: new URL('https://www.jeremias-arriondo.dev'),
+    metadataBase: new URL("https://www.jeremias-arriondo.dev"),
     title: title,
     description: description,
     openGraph: {
@@ -72,7 +73,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function PostPage(props: { params : Params }) {
+export default async function PostPage(props: { params: Params }) {
   const params = await props.params;
   const post = await getPostFromParams(params);
   if (!post) {
@@ -84,7 +85,7 @@ export default async function PostPage(props: { params : Params }) {
       p.slug !== post.slug &&
       p.categories.some((v) => post.categories.includes(v))
   );
-  
+
   return (
     <main>
       <article className="container-section py-6 lg:py-10" data-mdx-container>
@@ -101,19 +102,24 @@ export default async function PostPage(props: { params : Params }) {
             {post.title}
           </h1>
           <div className="mt-4 flex space-x-4">
-            {/* @ts-expect-error Server Component */}
-            {post.author ? <Author username={post.author} /> : null}
+            {post.author ? (
+              <ViewTransition name="hero-image">
+                <Author username={post.author} />
+              </ViewTransition>
+            ) : null}
           </div>
         </div>
         {post.image && (
-          <Image
-            src={post.image}
-            alt={post.title}
-            width={1200}
-            height={630}
-            className="aspect-[1200/630] object-cover my-8 rounded-md transition-colors"
-            priority
-          />
+          <ViewTransition name={post._raw.flattenedPath}>
+            <Image
+              src={post.image}
+              alt={post.title}
+              width={1200}
+              height={630}
+              className="aspect-[1200/630] object-cover my-8 rounded-md transition-colors"
+              priority
+            />
+          </ViewTransition>
         )}
         <Mdx code={post.body.code} />
         <hr className="mt-12" />

@@ -8,6 +8,10 @@ const nextConfig = {
   images: {
     domains: ["www.google.com", "avatar.vercel.sh"],
   },
+  experimental: {
+    viewTransition: true,
+  },
+  devIndicators: false,
   headers() {
     return [
       {

@@ -1,0 +1,115 @@
+---
+title: Implementando View Transition con React
+description: Aplicación sencilla para utilizar View transition vía React y Nextjs
+image: /images/blog/triangle-in-a-moving.webp
+date: "2025-03-08"
+author: jeremiasarriondo
+categories:
+  - Next.js
+---
+
+## 🚀 Qué es View Transition y por qué usarlo?
+
+Las View Transitions son una nueva API de animación experimental en React 19 que nos permite animar transiciones entre elementos de manera fluida y eficiente, sin necesidad de bibliotecas adicionales como Framer Motion. Esta funcionalidad mejora la experiencia de usuario al hacer cambios de estado o de vista en una aplicación web.
+
+Otro punto a tener en cuenta es que podemos habilitar el uso de la nueva API de View Transitions en Next.js a partir de la [versión 15.2](https://nextjs.org/blog/next-15-2#react-view-transitions-experimental). Esto lo realizamos de la siguiente manera:
+
+```js
+module.exports = {
+  experimental: {
+    viewTransition: true,
+  },
+};
+```
+
+<Callout>
+  📖 Nota: Esta función es altamente experimental y puede cambiar en futuras
+  versiones.
+</Callout>
+
+### 📦 Instalación de dependencias
+
+Asegúrate de que tu `package.json` tiene las versiones correctas:
+
+```json
+"dependencies": {
+    "next": "^15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+"devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+  }
+```
+
+### Implementando View Transition en React
+
+Actualmente debemos importar el componente experimental llamado `unstable_ViewTransition`, así que podríamos realizar lo siguiente:
+
+```jsx
+import { unstable_ViewTransition as ViewTransition } from "react";
+```
+
+### 🛠 Cómo lo utilizamos?
+
+En el componente que queramos agregar la transición inicial lo envolveremos con el componente `ViewTransition`
+
+```jsx
+<ViewTransition name="hero-image">
+  <Image
+    src="/images/example.webp"
+    width={200}
+    height={200}
+    className="object-cover"
+    alt="Picture of the author"
+    priority
+  />
+</ViewTransition>
+```
+
+Luego volvemos a referenciar el mismo elemento pero en cualquier otra posición y diseño, por ejemplo a continuación transicionaremos la imagen del hero hacia la imagen del avatar de un post:
+
+```jsx
+<ViewTransition name="hero-image">
+  <Author username={post.author} />
+</ViewTransition>
+```
+
+### 🔑 Cómo funciona name en ViewTransition?
+
+La clave para que ViewTransition funcione es el atributo `name`. React usará este identificador para relacionar la versión inicial y la versión final del elemento y generar la animación de transición.
+
+```jsx
+<ViewTransition name="profile-picture">
+  <Image src="/images/avatar.webp" width={100} height={100} alt="Avatar" />
+</ViewTransition>
+```
+
+Si más adelante en la misma página u otra vista referenciamos este mismo `name`, React aplicará una animación suave entre ambos estados.
+
+### 🎥 Demo en acción
+
+Aquí en mi sitio web puedes ver una demo en vivo de cómo funcionan las [View Transitions](https://www.jeremias-arriondo.dev/blog)
+
+Puedes ver más ejemplos utilizados en mi [repositorio de código](https://github.com/JeremiasArriondo/jeremias-arriondo.dev)
+
+### 🚨 Limitaciones y consideraciones
+
+- No todos los navegadores la soportan aún → Actualmente, View Transitions solo funcionan en navegadores basados en Chromium como Chrome 111+ y Edge.
+- No funciona con elementos dentro de `<canvas>` o `<iframe>`.
+- Solo funciona en el mismo árbol del DOM → Si el componente se desmonta completamente, la transición no ocurrirá.
+- Puede cambiar en futuras versiones de React → Es una API experimental y su implementación podría cambiar en versiones futuras.
+
+### Cómo degradar en navegadores no compatibles?
+
+Si el navegador no soporta View Transitions, podemos hacer un fallback manual:
+
+```jsx
+if (!document.startViewTransition) {
+  console.warn("View Transitions no está soportado en este navegador.");
+  // Aquí puedes implementar una alternativa, como animaciones CSS o Framer Motion.
+}
+```
+
+Gracias a la comunidad y al equipo de React por facilitarnos tanto el desarrollo de animaciones tan preciosas ✨

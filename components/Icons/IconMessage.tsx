@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { JSX, memo } from "react";
 
 export const IconMessage = memo<JSX.IntrinsicElements["svg"]>(
   function IconMessage(props) {

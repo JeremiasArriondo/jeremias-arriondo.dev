@@ -2,13 +2,16 @@ import { Post } from "@/.contentlayer/generated";
 import { formatDate } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { unstable_ViewTransition as ViewTransition } from "react";
 
 export function PostsList({ allPosts }: { allPosts: Post[] }) {
   return (
     <section className="my-8 space-y-8">
-      <h2 className="font-heading text-xl md:text-2xl dark:text-white">
-        Últimos posteos:
-      </h2>
+      <ViewTransition name="title-post">
+        <h2 className="font-heading text-xl md:text-2xl dark:text-white">
+          Últimos posteos:
+        </h2>
+      </ViewTransition>
       <div>
         {allPosts.length > 0 ? (
           <ol
@@ -22,13 +25,15 @@ export function PostsList({ allPosts }: { allPosts: Post[] }) {
                   {formatDate(post.date)}
                 </time>
                 <Link href={post.slug}>
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    width={80}
-                    height={80}
-                    className="my-2 aspect-video rounded-lg object-cover"
-                  />
+                  <ViewTransition name={post._raw.flattenedPath}>
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      width={80}
+                      height={80}
+                      className="my-2 aspect-video rounded-lg object-cover"
+                    />
+                  </ViewTransition>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                     {post.title}
                   </h3>

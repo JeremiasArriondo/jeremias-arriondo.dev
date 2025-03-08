@@ -1,9 +1,9 @@
-import { allPosts } from "contentlayer/generated";
+import { CategoryFilter } from "@/components/category-filter";
 import { PostsGrid } from "@/components/posts-grid";
 import { SearchBar } from "@/components/search-bar";
-import { CategoryFilter } from "@/components/category-filter";
 import { toUniqueArray } from "@/lib/to-unique-array";
-
+import { allPosts } from "contentlayer/generated";
+import { unstable_ViewTransition as ViewTransition } from "react";
 export const metadata = {
   title: "Blog",
   description: "Posteos sobre desarrollo de software, diseño y más.",
@@ -22,7 +22,9 @@ export default async function BlogPage() {
     <main>
       <section className="background-gradient">
         <div className="container-section pt-8 md:pt-16">
-          <h1 className="title dark:text-white mb-4">Blog</h1>
+          <ViewTransition name="title-post">
+            <h1 className="title dark:text-white mb-4">Blog</h1>
+          </ViewTransition>
           <p>
             Suelo escribir sobre desarrollo de software, soluciones a errores y
             otras ideas más

@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
+import { unstable_ViewTransition as ViewTransition } from "react";
 import { IconGitHub } from "./Icons/IconGitHub";
 import { IconLinkedIn } from "./Icons/IconLinkedIn";
 import { IconMessage } from "./Icons/IconMessage";
-import Link from "next/link";
 
 export const Hero = () => {
   return (
@@ -13,14 +14,20 @@ export const Hero = () => {
       <div className="container-section flow w-full">
         <div className="mt-8 md:mt-16 flex flex-col items-start md:flex-row gap-8 md:gap-12">
           <div className="mx-auto md:mx-0">
-            <Image
-              src="/images/avatar-squared.webp"
-              width={200}
-              height={200}
-              className="inline-flex object-cover overflow-hidden rounded-full shadow-violetSecondary "
-              alt="Picture of the author"
-              priority
-            />
+            <ViewTransition
+              name="hero-image"
+              className="via-blur"
+              exit="duration-100"
+            >
+              <Image
+                src="/images/avatar-squared.webp"
+                width={200}
+                height={200}
+                className="inline-flex object-cover overflow-hidden rounded-full shadow-violetSecondary "
+                alt="Picture of the author"
+                priority
+              />
+            </ViewTransition>
           </div>
           <div>
             <h1 className="font-heading dark:text-customGray-base text-2xl md:text-3xl">
@@ -40,7 +47,13 @@ export const Hero = () => {
             software enfocado en resolver y construir soluciones tanto en el
             Frontend como en el Backend.
           </p>
-          <p> Aquí podrás conocer <Link href="/about" target="_self" className="link">más sobre mi.</Link></p>
+          <p>
+            {" "}
+            Aquí podrás conocer{" "}
+            <Link href="/about" target="_self" className="link">
+              más sobre mi.
+            </Link>
+          </p>
         </div>
         <p className="my-4 font-heading">Encuéntrame en:</p>
         <div className="flex flex-wrap gap-4">

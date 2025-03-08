@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { unstable_ViewTransition as ViewTransition } from "react";
 import { IconRocket } from "./Icons/IconRocket";
 
 export function BannerContact() {
@@ -12,14 +13,16 @@ export function BannerContact() {
         Si estás buscando un compañero de trabajo remoto, no dudes en enviarme
         un correo electrónico.
       </p>
-      <Link
-        href="/contact"
-        className="self-start inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-violetPrimary/30 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
-      >
-        <span className="relative px-5 py-1.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
-          Contactame
-        </span>
-      </Link>
+      <ViewTransition name="title-contact">
+        <Link
+          href="/contact"
+          className="self-start inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-violetPrimary/30 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
+        >
+          <span className="relative px-5 py-1.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
+            Contactame
+          </span>
+        </Link>
+      </ViewTransition>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { ContactForm } from "@/components/contact-form";
 import { IconGitHub } from "@/components/Icons/IconGitHub";
 import { IconLinkedIn } from "@/components/Icons/IconLinkedIn";
 import { IconMessage } from "@/components/Icons/IconMessage";
+import { unstable_ViewTransition as ViewTransition } from "react";
 
 export const metadata = {
   title: "Contactame",
@@ -13,7 +14,9 @@ export default function ContactPage() {
     <main>
       <section className="background-gradient">
         <div className="container-section flow pt-8 md:pt-16">
-          <h1 className="title dark:text-white">Contáctame</h1>
+          <ViewTransition name="title-contact">
+            <h1 className="title dark:text-white">Contáctame</h1>
+          </ViewTransition>
           <p>
             👋 ¿Tienes una idea, un proyecto o simplemente quieres conversar?
             Escríbeme y con gusto responderé lo antes posible. ¡Estoy listo para

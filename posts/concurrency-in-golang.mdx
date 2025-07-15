@@ -1,0 +1,133 @@
+---
+title: Concurrencia en Golang
+description: Concurrencia en Go, cómo entenderla y usarla como un verdadero Gopher
+image: /images/blog/concurrency-golang.webp
+date: "2025-07-15"
+author: jeremiasarriondo
+categories:
+  - Go
+---
+
+## ¿Qué es la concurrencia?
+
+La concurrencia es la capacidad de un programa para ejecutar múltiples tareas al mismo tiempo (o al menos dar la ilusión de hacerlo). Es especialmente útil cuando queremos realizar operaciones independientes de forma simultánea, como servir múltiples usuarios en un servidor web, procesar archivos o consumir APIs externas.
+
+<Callout>
+  “Concurrencia no es paralelismo. Concurrencia es estructurar cosas para que se
+  vean como si fueran simultáneas; paralelismo es hacer muchas cosas a la vez.”
+  — Rob Pike (co-creador de Go)
+</Callout>
+
+Go fue diseñado desde cero para manejar concurrencia de manera simple, segura y eficiente. Por eso tiene herramientas integradas como `goroutines` y `channels` que facilitan su uso.
+
+### ¿Qué son las goroutines?
+
+Una `goroutine` es una función que se ejecuta de forma concurrente con otras funciones. Se crean usando la palabra clave `go` antes de llamar a la función:
+
+```go
+go fmt.Println("Hola desde una goroutine")
+```
+
+Cada vez que usás `go`, lanzás una nueva goroutine. Son extremadamente livianas y pueden escalar a miles sin consumir demasiados recursos, a diferencia de los hilos tradicionales (threads).
+
+### Comunicación entre goroutines: channels
+
+Go propone un enfoque donde "no compartas memoria para comunicarte, comunicáte para compartir memoria". Esto se logra con los channels, que permiten enviar y recibir datos entre goroutines de forma segura.
+
+Creación y uso básico:
+
+```go
+ch := make(chan string)
+// enviar mensaje
+ch <- "mensaje"
+// recibir mensaje
+dato := <-ch
+```
+
+También podés usar funciones anónimas o normales para lanzar goroutines que usen el canal:
+
+```go
+ch := make(chan string)
+go func() {
+    ch <- "Hola desde goroutine"
+}()
+fmt.Println(<-ch)
+```
+
+### Ejemplo práctico: Simulador de descargas
+
+```go
+package main
+
+import (
+    "fmt"
+    "math/rand"
+    "time"
+)
+
+func descargar(nombre string, ch chan string) {
+    tiempo := rand.Intn(5) + 1
+    time.Sleep(time.Duration(tiempo) * time.Second)
+    ch <- fmt.Sprintf("%s descargado en %d segundos", nombre, tiempo)
+}
+
+func main() {
+    rand.Seed(time.Now().UnixNano())
+    archivos := []string{"foto.jpg", "video.mp4", "documento.pdf"}
+    ch := make(chan string)
+
+    for _, archivo := range archivos {
+        go descargar(archivo, ch)
+    }
+
+    for i := 0; i < len(archivos); i++ {
+        fmt.Println(<-ch)
+    }
+}
+```
+
+Este ejemplo lanza varias descargas en paralelo y recibe el resultado a medida que cada una termina.
+
+### WaitGroup y select
+
+#### sync.WaitGroup
+
+Permite esperar a que un conjunto de goroutines termine su trabajo.
+
+```go
+var wg sync.WaitGroup
+wg.Add(1)
+go func() {
+    defer wg.Done()
+    fmt.Println("Trabajo terminado")
+}()
+wg.Wait()
+```
+
+#### select
+
+Permite escuchar múltiples canales al mismo tiempo:
+
+```go
+select {
+case msg1 := <-ch1:
+    fmt.Println("Mensaje 1:", msg1)
+case msg2 := <-ch2:
+    fmt.Println("Mensaje 2:", msg2)
+}
+```
+
+### Errores comunes a evitar
+
+- No cerrar un canal si ya no se va a usar
+- Deadlocks: dos goroutines esperando entre sí
+- Goroutines que nunca terminan (fugas)
+- Enviar o recibir fuera de sincronía
+
+### ¿Cuándo usar concurrencia?
+
+- Ejecutar tareas independientes al mismo tiempo (envío de emails, logs, etc.)
+- Servir múltiples usuarios en una API REST
+- Procesar eventos o tareas en segundo plano
+- Scraping web o bots que consultan muchas fuentes
+- Automatización de procesos pesados que se pueden dividir

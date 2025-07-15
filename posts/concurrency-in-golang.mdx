@@ -117,6 +117,59 @@ case msg2 := <-ch2:
 }
 ```
 
+#### Ejemplo con una API y WaitGroup
+
+Veamos un ejemplo práctico donde usamos sync.WaitGroup para hacer múltiples requests concurrentes a la API de usuarios de JSONPlaceholder.
+
+```go
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"io"
+	"net/http"
+	"sync"
+)
+
+type User struct {
+    ID       int    `json:"id"`
+    Name     string `json:"name"`
+    Username string `json:"username"`
+    Email    string `json:"email"`
+}
+
+func obtenerUsuario(id int, wg *sync.WaitGroup) {
+    defer wg.Done()
+    url := fmt.Sprintf("https://jsonplaceholder.typicode.com/users/%d", id)
+    resp, err := http.Get(url)
+    if err != nil {
+        fmt.Println("Error en request:", err)
+        return
+    }
+    defer resp.Body.Close()
+
+    body, _ := io.ReadAll(resp.Body)
+    var user User
+    if err := json.Unmarshal(body, &user); err != nil {
+        fmt.Println("Error al parsear JSON:", err)
+        return
+    }
+
+    fmt.Printf("Usuario %d: %s (%s)\n", user.ID, user.Name, user.Email)
+}
+
+func main() {
+    var wg sync.WaitGroup
+    for i := 1; i <= 5; i++ {
+        wg.Add(1)
+        go obtenerUsuario(i, &wg)
+    }
+    wg.Wait()
+    fmt.Println("Todos los usuarios fueron obtenidos.")
+}
+```
+
 ### Errores comunes a evitar
 
 - No cerrar un canal si ya no se va a usar

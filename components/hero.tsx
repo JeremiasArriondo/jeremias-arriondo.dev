@@ -20,11 +20,12 @@ export const Hero = () => {
               exit="duration-100"
             >
               <Image
-                src="/images/avatar-squared.webp"
+                src="/images/avatar/jeremias-arriondo-profile.webp"
                 width={200}
                 height={200}
                 className="inline-flex object-cover overflow-hidden rounded-full shadow-violetSecondary "
                 alt="Picture of the author"
+                quality={100}
                 priority
               />
             </ViewTransition>

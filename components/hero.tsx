@@ -14,11 +14,7 @@ export const Hero = () => {
       <div className="container-section flow w-full">
         <div className="mt-8 md:mt-16 flex flex-col items-start md:flex-row gap-8 md:gap-12">
           <div className="mx-auto md:mx-0">
-            <ViewTransition
-              name="hero-image"
-              className="via-blur"
-              exit="duration-100"
-            >
+            <ViewTransition name="hero-image" exit="duration-100">
               <Image
                 src="/images/avatar/jeremias-arriondo-profile.webp"
                 width={200}

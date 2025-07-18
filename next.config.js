@@ -11,6 +11,7 @@ const nextConfig = {
   experimental: {
     viewTransition: true,
   },
+  turbopack: {},
   devIndicators: false,
   headers() {
     return [

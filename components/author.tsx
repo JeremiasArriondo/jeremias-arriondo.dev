@@ -20,7 +20,7 @@ export async function Author({
   const author: Author = {
     jeremiasarriondo: {
       name: "Jeremias Arriondo",
-      image: "/images/avatar/jeremias-arriondo.webp",
+      image: "/images/avatar/jeremias-arriondo-profile.webp",
     },
   };
 
@@ -57,7 +57,7 @@ export async function Author({
     </div>
   ) : (
     <Link
-      href={`https://twitter.com/${username}`}
+      href={`https://x.com/jere_arriondo`}
       className="group flex items-center space-x-3"
       target="_blank"
       rel="noopener noreferrer"

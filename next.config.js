@@ -6,7 +6,14 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ["www.google.com", "avatar.vercel.sh"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatar.vercel.sh",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
   experimental: {
     viewTransition: true,

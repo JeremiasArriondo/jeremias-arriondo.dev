@@ -9,7 +9,7 @@
   }
 
   .anchor:after {
-    content: "⚓";
+    content: "⚡";
   }
 
   :hover > .anchor {

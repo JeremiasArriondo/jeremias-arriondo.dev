@@ -29,7 +29,7 @@ export function CategoryFilter({ allCategories }: { allCategories: string[] }) {
           Limpiar todo
         </button>
       </div>
-      <div className="flex gap-4 md:gap-6 min-h-[56px] w-[90vw] max-w-[36rem] flex-wrap justify-start gap-y-[0.3rem]">
+      <div className="flex gap-4 min-h-[56px] w-[90vw] max-w-[36rem] flex-wrap justify-start gap-y-[0.3rem]">
         {allCategories.map((category) => (
           <Category key={category} category={category} />
         ))}

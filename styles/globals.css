@@ -41,6 +41,20 @@
     max-width: 62.5rem;
     padding: 0 1.5rem;
   }
+
+  .bg-grid-light {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  .bg-grid-dark {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 0
+    );
+    background-size: 20px 20px;
+  }
+
   :root {
     --gradient-from: 0 112 243;
     --gradient-to: 248 28 229;

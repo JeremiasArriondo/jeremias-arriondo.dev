@@ -12,11 +12,12 @@ export function PostsList({ allPosts }: { allPosts: Post[] }) {
           Últimos posteos:
         </h2>
       </ViewTransition>
+
       <div>
         {allPosts.length > 0 ? (
           <ol
             id="posts-grid"
-            className="relative border-l border-gray-200 dark:border-gray-700"
+            className="relative border-l border-gray-200 dark:border-gray-700 w-full bg-white dark:bg-[#0d0d0d] bg-grid-light dark:bg-grid-dark rounded-r-lg"
           >
             {allPosts.map((post) => (
               <li key={post.slug} className="mb-10 ml-4">
